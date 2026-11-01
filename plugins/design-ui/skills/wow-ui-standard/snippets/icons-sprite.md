@@ -1,6 +1,6 @@
 # Inline-SVG icon sprite + RTL rules (the user principles 5 + 12)
 
-Proven in production on the example project hub (`engine/src/ui/icons.ts`, 17.7.2026).
+Proven in production on a live dashboard project.
 One hidden `<symbol>` sprite per page, tiny `<use>` stamps everywhere. Replaces
 unicode/emoji glyphs (like a bare chart emoji between black glyphs) that render
 inconsistently across platforms and ignore `currentColor`.

@@ -60,7 +60,7 @@ Accessibility: a lit-up card must be keyboard-reachable — a real `<button>` /
 
 Two reasons this is opt-in and NOT part of the standard's core:
 
-1. It is a `radial-gradient` — web-design-stack's hard rule is "no gradients
+1. It is a `radial-gradient` — the standard rule is "no gradients
    without request". Enable only when the project brand embraces gradients.
 2. Repositioning `--mx/--my` on every `pointermove` is continuous paint work
    (not transform/opacity). On a card-sized layer it is cheap, but it IS a

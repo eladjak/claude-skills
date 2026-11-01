@@ -1,7 +1,7 @@
 # Sunrise splash — the app-entry splash pattern (the user principles 7 + 8)
 
-Proven in production on the example project hub (`engine/src/demo/hub-entry.ts`, 17.7.2026).
-Generalize the METAPHOR per project brand (the example project = a rising sun, because solar);
+Proven in production on a live dashboard project.
+Generalize the METAPHOR per project brand (for example a rising sun for a solar-energy brand);
 the mechanics below stay identical everywhere.
 
 ## The contract (non-negotiable guardrails)

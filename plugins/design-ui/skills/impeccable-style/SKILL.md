@@ -3,7 +3,7 @@ name: impeccable-style
 description: >-
   Distilled methodology from Impeccable (impeccable.style, by Paul Bakaus —
   jQuery UI creator / ex-Chrome DevTools lead; 38.7k★, Apache-2.0, free). The
-  "design-slop detector + design-direction vocabulary" layer the user's stack was
+  "design-slop detector + design-direction vocabulary" layer the stack was
   missing. Use to AUDIT and UPGRADE the visual design of an EXISTING website or
   component — catch the 40+ deterministic "AI-generated UI tells" (purple
   gradients, side-tab accent borders, glassmorphism, icon-tile feature cards,
@@ -13,20 +13,20 @@ description: >-
   UI", "the site looks generic/templated", "upgrade the existing design",
   "שדרג את העיצוב", "העיצוב נראה גנרי", "תוריד את הסלופ", "ביקורת עיצוב".
   Use WHEN reviewing/refining an already-built page (not greenfield brand
-  creation — for that the existing web-design-stack flow leads). Pairs with
-  /rams (a11y) and design-motion-principles (motion). The actual upstream tool
+  creation — for that, start from brand creation). Pairs with
+  web-design-guidelines (a11y) and design-motion-principles (motion). The actual upstream tool
   is ALSO installable as a Claude Code plugin (see Install) if you want its live
   CLI detector + slash commands; this skill captures the method so any agent can
   apply it without the install.
 ---
 
-> Part of the UX standard - entry point: `ux-standard` (rules/ux-from-day-one.md). Load it first to see which design skill fits which job.
+> Part of the UX standard - entry point: `ux-standard`. Load it first to see which design skill fits which job.
 
 # impeccable-style — Kill AI-slop, upgrade existing design
 
 **Source:** [impeccable.style](https://impeccable.style/) · [github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable) (Apache-2.0, free, 38.7k★) by **Paul Bakaus** (created jQuery UI, led Chrome DevTools, launched AMP/Web Stories). Built on top of Anthropic's frontend-design skill.
 
-**Why this exists in the user's stack:** the existing design rules (`web-design-stack.md`, `ui-skills`, `/rams`, `design-motion-principles`) cover *brand consistency*, *accessibility*, and *code-level animation* — but they had **no systematic catalog of the visual "tells" that make AI-built UIs look templated**, and no shared vocabulary of design-direction moves. Impeccable fills exactly that gap. It is **additive, not redundant.**
+**Why this exists in the stack:** the existing design rules (`ui-skills`, `fixing-accessibility`, `design-motion-principles`) cover *brand consistency*, *accessibility*, and *code-level animation* — but they had **no systematic catalog of the visual "tells" that make AI-built UIs look templated**, and no shared vocabulary of design-direction moves. Impeccable fills exactly that gap. It is **additive, not redundant.**
 
 ---
 
@@ -38,9 +38,9 @@ description: >-
 - Auditing a client site (incl. Hebrew RTL) you're about to improve and hand over.
 - Reviewing your own output before deploy — the slop checklist as a gate.
 
-**Do NOT use for** — greenfield brand creation (palette/font/tone from zero → that's `web-design-stack.md` Step 0–1 + Claude Design / Stitch), pure accessibility audits (`/rams`), or pure motion review (`design-motion-principles`). Those run alongside, not instead.
+**Do NOT use for** — greenfield brand creation (palette/font/tone from zero → that is a brand-creation step, e.g. with Stitch), pure accessibility audits (`fixing-accessibility`), or pure motion review (`design-motion-principles`). Those run alongside, not instead.
 
-**Hard rule (inherited from the user's stack):** this is an *upgrade* layer — **read the project's existing palette/fonts/brand first, then improve within them.** Never repaint a client site to a generic "tasteful" default. The slop list tells you what to *remove*; the brand tells you what to *keep*.
+**Hard rule (inherited from the stack):** this is an *upgrade* layer — **read the project's existing palette/fonts/brand first, then improve within them.** Never repaint a client site to a generic "tasteful" default. The slop list tells you what to *remove*; the brand tells you what to *keep*.
 
 ---
 
@@ -88,7 +88,7 @@ Scan the existing design (visually + in the CSS/markup) for these. Each is a rec
 
 **Motion** (defers to `design-motion-principles` for depth)
 - **Bounce/elastic easing** on UI → dated; ease-out for UI, reserve spring for physical objects.
-- Animating width/height/padding/margin → transform/opacity (or grid-template-rows for height). (Already an the user hard rule.)
+- Animating width/height/padding/margin → transform/opacity (or grid-template-rows for height). (A common code-level rule.)
 - Image scale/rotate on hover → keep imagery static or make it subtle/purposeful.
 
 **Copy (AI cadence)**
@@ -100,7 +100,7 @@ Scan the existing design (visually + in the CSS/markup) for these. Each is a rec
 - Cramped padding (text near edges) → ≥12–16px inside bordered/colored containers; ≥16px page gutter.
 - Justified text without hyphenation → left-align or `hyphens:auto`.
 - Body text < 14px, line-height < 1.3 → ≥14px (16 ideal), 1.5–1.7 line-height (Hebrew: 1.7).
-- Skipped heading levels (h1→h3), low contrast (< WCAG AA) → fix (overlaps `/rams`).
+- Skipped heading levels (h1→h3), low contrast (< WCAG AA) → fix (overlaps `fixing-accessibility`).
 
 ### 3. Pick a DIRECTION (not an abstract brief)
 "Code toward a concrete image, not an abstract brief." If the design is generic because it has *no point of view*, choose a deliberate direction that fits the brand (e.g. editorial, brutalist-restrained, luxury-minimal, retro-functional) and make every choice serve it. One accent per view. Anti-references ("not like X") are as useful as references.
@@ -117,12 +117,12 @@ Impeccable's value is a shared vocabulary for *what kind of change to make*. Use
 Apply 1–3 of these per pass — don't do all of them at once.
 
 ### 5. Re-scan + verify
-Re-run the slop scan, then the user's existing gates: `/rams` (a11y), `bunx tsc --noEmit && bunx ultracite check` (if code), GEO (`geo-scan`/`geo-aeo-optimizer`) if a public site, and a real browser screenshot (`agent-browser`).
+Re-run the slop scan, then your existing gates: accessibility (`fixing-accessibility`), type-check and lint (if code), GEO (`geo-scan`/`geo-aeo-optimizer`) if a public site, and a real browser screenshot (`agent-browser`).
 
 ---
 
-## Hebrew / RTL note (the user-specific)
-The slop list overlaps the user's RTL gotchas — apply both:
+## Hebrew / RTL note (Hebrew sites)
+The slop list overlaps common RTL gotchas — apply both:
 - **Italic-serif display** is double-bad in Hebrew (cliché *and* clips ק/ל/ץ edges) → bold roman + padding.
 - Line-height **1.7** for Hebrew body (not 1.5).
 - Slop "fix" suggestions about fonts must respect the project's Hebrew face (Almoni/Heebo/Rubik/Assistant) — never swap to a Latin-only "distinctive" font on a Hebrew site.
@@ -148,11 +148,11 @@ Notes: free, Apache-2.0. The optional "design hook" auto-runs the detector on ed
 
 ---
 
-## Comparison to what the user already has (honest)
+## Comparison to adjacent design skills (honest)
 | Capability | Already covered by | Impeccable adds |
 |---|---|---|
-| Brand consistency, project-specific palette/fonts | `web-design-stack.md` | — (impeccable *respects* it) |
-| Accessibility critical/serious checks | `/rams`, `web-design-guidelines` | overlap only |
+| Brand consistency, project-specific palette/fonts | the project brand guide | — (impeccable *respects* it) |
+| Accessibility critical/serious checks | `fixing-accessibility` | overlap only |
 | Motion principles | `design-motion-principles`, `ui-skills` | overlap only |
 | Code-level anim rule (transform/opacity, ≤200ms) | `ui-skills`, CLAUDE.md | overlap only |
 | **Catalog of 40+ "AI-generated UI tells"** | **nothing** | ✅ unique |
@@ -168,7 +168,7 @@ Notes: free, Apache-2.0. The optional "design hook" auto-runs the detector on ed
 - A written slop-scan report listing each detected tell + its concrete fix (not vague "make it nicer").
 - Fixes proposed *within* the project's existing brand (no generic repaint).
 - 1–3 directional moves applied per pass, then re-scanned.
-- Passes `/rams` + (if public) GEO, with a real browser screenshot as evidence.
+- Passes the accessibility review + (if public) GEO, with a real browser screenshot as evidence.
 
 ## Error handling
 - **Site behind auth / can't fetch** → run the detector on local source (`detect src/`) or screenshot via `agent-browser`, then scan visually against this checklist.
