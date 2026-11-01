@@ -1,0 +1,2 @@
+Heebo (c) The Heebo Project Authors. SIL Open Font License 1.1 (https://openfontlicense.org). Embedded in generated decks so Hebrew renders identically on any machine.
+qrcode-generator 1.4.4 (c) Kazuhiko Arase, MIT, vendored in vendor/qrcode.js.

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Chat Component</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: #1a1a2e;
+      --bg-bubble-bot: #1e1e35;
+      --bg-bubble-user: #6c3ce0;
+      --bg-bubble-user-hover: #7b4fe3;
+      --text-primary: #e8e8f0;
+      --text-secondary: #9898b0;
+      --text-muted: #6a6a85;
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.3);
+      --accent-subtle: rgba(139, 92, 246, 0.1);
+      --border: rgba(255, 255, 255, 0.06);
+      --border-accent: rgba(139, 92, 246, 0.3);
+      --online-green: #22c55e;
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
+    }
+
+    body {
+      font-family: 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      direction: rtl;
+    }
+
+    /* ─── Chat Container ─── */
+    .chat-container {
+      width: 100%;
+      max-width: 560px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      height: 680px;
+      position: relative;
+    }
+
+    /* ─── Header ─── */
+    .chat-header {
+      padding: 18px 22px;
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.08) 100%);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--accent), #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+      position: relative;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .avatar-image {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+    }
+
+    .online-dot {
+      position: absolute;
+      bottom: 1px;
+      left: 1px;
+      width: 13px;
+      height: 13px;
+      background: var(--online-green);
+      border-radius: var(--radius-full);
+      border: 2.5px solid var(--bg-secondary);
+      animation: pulse-online 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-online {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+      50% { box-shadow: 0 0 0 5px rgba(34, 197, 94, 0); }
+    }
+
+    .header-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .header-status {
+      font-size: 13px;
+      color: var(--online-green);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 2px;
+    }
+
+    .header-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--online-green);
+      border-radius: var(--radius-full);
+      display: inline-block;
+    }
+
+    /* ─── Messages Area ─── */
+    .messages-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-behavior: smooth;
+    }
+
+    .messages-area::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .messages-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .messages-area::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 10px;
+    }
+
+    /* ─── Welcome Message ─── */
+    .welcome-message {
+      text-align: center;
+      padding: 16px 0 8px;
+    }
+
+    .welcome-emoji {
+      font-size: 36px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .welcome-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ─── Message Bubbles ─── */
+    .message-row {
+      display: flex;
+      gap: 10px;
+      max-width: 88%;
+      animation: fadeSlideIn 0.35s ease-out;
+    }
+
+    .message-row.bot {
+      align-self: flex-start;
+    }
+
+    .message-row.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .message-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--accent), #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .message-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+    }
+
+    .message-bubble {
+      padding: 12px 16px;
+      border-radius: var(--radius-lg);
+      font-size: 14.5px;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    .message-row.bot .message-bubble {
+      background: var(--bg-bubble-bot);
+      color: var(--text-primary);
+      border-bottom-right: 4px; /* RTL: right side is the tail side for bot */
+      border-bottom-left-radius: 4px;
+    }
+
+    .message-row.user .message-bubble {
+      background: var(--bg-bubble-user);
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+
+    .message-time {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 5px;
+      text-align: start;
+    }
+
+    .message-row.user .message-time {
+      text-align: end;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ─── Typing Indicator ─── */
+    .typing-indicator {
+      display: flex;
+      gap: 10px;
+      align-self: flex-start;
+      max-width: 88%;
+      animation: fadeSlideIn 0.3s ease-out;
+    }
+
+    .typing-bubble {
+      background: var(--bg-bubble-bot);
+      padding: 14px 20px;
+      border-radius: var(--radius-lg);
+      border-bottom-left-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .typing-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--text-secondary);
+      border-radius: var(--radius-full);
+      animation: typingBounce 1.2s ease-in-out infinite;
+    }
+
+    .typing-dot:nth-child(2) { animation-delay: 0.15s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-6px); opacity: 1; }
+    }
+
+    /* ─── Questions Panel ─── */
+    .questions-panel {
+      border-top: 1px solid var(--border);
+      background: linear-gradient(0deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      padding: 16px 18px 18px;
+      flex-shrink: 0;
+    }
+
+    .questions-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .questions-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+
+    .questions-grid::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .questions-grid::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 10px;
+    }
+
+    .question-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 13.5px;
+      cursor: pointer;
+      text-align: start;
+      transition: all 0.2s ease;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .question-btn:hover {
+      background: var(--accent-subtle);
+      border-color: var(--border-accent);
+      transform: translateY(-1px);
+    }
+
+    .question-btn:active {
+      transform: translateY(0);
+    }
+
+    .question-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .question-btn .q-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    /* ─── Animations ─── */
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 600px) {
+      body {
+        padding: 0;
+        align-items: stretch;
+      }
+
+      .chat-container {
+        max-width: none;
+        border-radius: 0;
+        height: 100vh;
+        height: 100dvh;
+      }
+
+      .messages-area {
+        padding: 16px 14px;
+      }
+
+      .questions-panel {
+        padding: 14px;
+      }
+
+      .message-row {
+        max-width: 92%;
+      }
+    }
+
+    /* ─── Embed Mode (remove body styles when used as section) ─── */
+    .chat-container.embed-mode {
+      height: auto;
+      min-height: 500px;
+      max-height: 700px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container" id="chatContainer">
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="avatar" id="headerAvatar">
+        <span id="avatarInitials"></span>
+        <div class="online-dot"></div>
+      </div>
+      <div class="header-info">
+        <div class="header-name" id="headerName"></div>
+        <div class="header-status" id="headerStatus"></div>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div class="messages-area" id="messagesArea">
+      <div class="welcome-message">
+        <span class="welcome-emoji" id="welcomeEmoji"></span>
+        <p class="welcome-text" id="welcomeText"></p>
+      </div>
+    </div>
+
+    <!-- Questions -->
+    <div class="questions-panel">
+      <div class="questions-label" id="questionsLabel"></div>
+      <div class="questions-grid" id="questionsGrid"></div>
+    </div>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════════════
+    //  CONFIGURATION — Edit this to customize the component
+    // ═══════════════════════════════════════════════════════
+    const CONFIG = {
+      responderName: 'שם המשיב',
+      responderAvatar: 'א',
+      responderAvatarImage: null, // Set URL for photo, e.g. '/images/avatar.jpg'
+      statusText: 'מחובר עכשיו',
+      welcomeEmoji: '💬',
+      welcomeText: 'שלום! בחרו שאלה מהרשימה למטה ואשמח לענות.',
+      questionsLabel: 'שאלות נפוצות — לחצו לשאול:',
+      typingDelay: 1500, // ms
+      userAvatarInitials: 'את',
+
+      faqItems: [
+        {
+          q: 'מה אתה מציע כמפתח?',
+          a: 'אני מפתח Full-Stack עם התמחות בצד שרת — Node.js, REST APIs, PostgreSQL ומערכות AI. בניתי 26+ אפליקציות בפרודקשן, מדפי נחיתה ועד מערכות מורכבות עם אינטגרציות AI.',
+          icon: '🛠️'
+        },
+        {
+          q: 'כמה עולה לבנות אתר/אפליקציה?',
+          a: 'המחירים משתנים לפי סוג הפרויקט: דף נחיתה מ-₪2,500, אתר תדמית מ-₪5,000, אפליקציית ווב מותאמת מ-₪12,000. כל פרויקט מתומחר לפי היקף, מורכבות וזמני אספקה. שלחו לי הודעה ונבנה הצעה מדויקת.',
+          icon: '💰'
+        },
+        {
+          q: 'מה לוחות הזמנים האופייניים?',
+          a: 'דף נחיתה: 3-5 ימי עבודה. אתר תדמית: 1-2 שבועות. אפליקציית ווב: 3-6 שבועות. אני משתמש ב-AI כמכפיל כוח, מה שמאפשר לי לספק מהר יותר בלי לפגוע באיכות.',
+          icon: '📅'
+        },
+        {
+          q: 'באילו טכנולוגיות אתה עובד?',
+          a: 'Backend: Node.js, Express, PostgreSQL, Supabase, Convex. Frontend: React, Next.js, TypeScript, Tailwind CSS. AI: Claude API, OpenAI, Gemini. תשתיות: Vercel, Railway, Docker. הכל מותאם לצרכים הספציפיים של הפרויקט.',
+          icon: '⚡'
+        },
+        {
+          q: 'איך מתחילים לעבוד ביחד?',
+          a: 'פשוט מאוד! שלחו לי הודעה בוואטסאפ (052-542-7474) או דרך טופס יצירת קשר באתר. נקבע שיחת היכרות קצרה, אבין את הצרכים, ואחזיר הצעת מחיר תוך 24 שעות.',
+          icon: '🤝'
+        },
+        {
+          q: 'האם אתה מספק תחזוקה שוטפת?',
+          a: 'כן! אני מציע חבילות תחזוקה חודשיות הכוללות עדכוני אבטחה, גיבויים, ניטור ביצועים, ותיקוני באגים. גם אחרי סיום הפרויקט, אני זמין לתמיכה ושדרוגים.',
+          icon: '🔧'
+        }
+      ]
+    };
+
+    // ═══════════════════════════════════════════════════════
+    //  ENGINE — No need to edit below this line
+    // ═══════════════════════════════════════════════════════
+
+    const $ = (id) => document.getElementById(id);
+    let questionStates = CONFIG.faqItems.map(() => false); // track which were asked
+
+    function init() {
+      // Header
+      $('headerName').textContent = CONFIG.responderName;
+      $('headerStatus').textContent = CONFIG.statusText;
+      $('welcomeEmoji').textContent = CONFIG.welcomeEmoji;
+      $('welcomeText').textContent = CONFIG.welcomeText;
+      $('questionsLabel').textContent = CONFIG.questionsLabel;
+
+      // Avatar
+      if (CONFIG.responderAvatarImage) {
+        $('avatarInitials').innerHTML = `<img class="avatar-image" src="${CONFIG.responderAvatarImage}" alt="${CONFIG.responderName}">`;
+      } else {
+        $('avatarInitials').textContent = CONFIG.responderAvatar;
+      }
+
+      // Questions
+      renderQuestions();
+    }
+
+    function renderQuestions() {
+      const grid = $('questionsGrid');
+      grid.innerHTML = '';
+      CONFIG.faqItems.forEach((item, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'question-btn';
+        btn.disabled = questionStates[index];
+        btn.innerHTML = `
+          <span class="q-icon">${item.icon || '❓'}</span>
+          <span>${item.q}</span>
+        `;
+        btn.addEventListener('click', () => askQuestion(index));
+        grid.appendChild(btn);
+      });
+    }
+
+    function getCurrentTime() {
+      return new Date().toLocaleTimeString('he-IL', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    function createMessageRow(type, text) {
+      const row = document.createElement('div');
+      row.className = `message-row ${type}`;
+
+      const avatarDiv = document.createElement('div');
+      avatarDiv.className = 'message-avatar';
+
+      if (type === 'bot') {
+        if (CONFIG.responderAvatarImage) {
+          avatarDiv.innerHTML = `<img src="${CONFIG.responderAvatarImage}" alt="${CONFIG.responderName}">`;
+        } else {
+          avatarDiv.textContent = CONFIG.responderAvatar;
+        }
+      } else {
+        avatarDiv.textContent = CONFIG.userAvatarInitials;
+        avatarDiv.style.background = 'linear-gradient(135deg, #6c3ce0, #8b5cf6)';
+      }
+
+      const bubbleDiv = document.createElement('div');
+      bubbleDiv.className = 'message-bubble';
+      bubbleDiv.innerHTML = `
+        <div>${text}</div>
+        <div class="message-time">${getCurrentTime()}</div>
+      `;
+
+      row.appendChild(avatarDiv);
+      row.appendChild(bubbleDiv);
+      return row;
+    }
+
+    function createTypingIndicator() {
+      const row = document.createElement('div');
+      row.className = 'typing-indicator';
+      row.id = 'typingIndicator';
+
+      const avatarDiv = document.createElement('div');
+      avatarDiv.className = 'message-avatar';
+      if (CONFIG.responderAvatarImage) {
+        avatarDiv.innerHTML = `<img src="${CONFIG.responderAvatarImage}" alt="${CONFIG.responderName}">`;
+      } else {
+        avatarDiv.textContent = CONFIG.responderAvatar;
+      }
+
+      const bubble = document.createElement('div');
+      bubble.className = 'typing-bubble';
+      bubble.innerHTML = `
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      `;
+
+      row.appendChild(avatarDiv);
+      row.appendChild(bubble);
+      return row;
+    }
+
+    function scrollToBottom() {
+      const area = $('messagesArea');
+      requestAnimationFrame(() => {
+        area.scrollTo({ top: area.scrollHeight, behavior: 'smooth' });
+      });
+    }
+
+    function askQuestion(index) {
+      if (questionStates[index]) return;
+
+      const item = CONFIG.faqItems[index];
+      questionStates[index] = true;
+
+      // Disable the button immediately
+      renderQuestions();
+
+      // Add user message
+      const userMsg = createMessageRow('user', item.q);
+      $('messagesArea').appendChild(userMsg);
+      scrollToBottom();
+
+      // Show typing indicator after a short delay
+      setTimeout(() => {
+        const typing = createTypingIndicator();
+        $('messagesArea').appendChild(typing);
+        scrollToBottom();
+
+        // Replace typing with answer
+        setTimeout(() => {
+          typing.remove();
+          const botMsg = createMessageRow('bot', item.a);
+          $('messagesArea').appendChild(botMsg);
+          scrollToBottom();
+        }, CONFIG.typingDelay);
+      }, 400);
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

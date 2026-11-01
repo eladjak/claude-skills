@@ -1,0 +1,34 @@
+// Zod Validation Patterns
+
+import { z } from 'zod';
+
+// Basic schema
+const UserSchema = z.object({
+  id: z.string().uuid(),
+  email: z.string().email(),
+  name: z.string().min(2).max(100),
+  age: z.number().int().min(0).max(150).optional(),
+  role: z.enum(['admin', 'user', 'guest']),
+  createdAt: z.coerce.date(),
+});
+
+// Infer type from schema
+type User = z.infer<typeof UserSchema>;
+
+// Parse with error handling
+const parseUser = (data: unknown): Result<User, z.ZodError> => {
+  const result = UserSchema.safeParse(data);
+  if (result.success) {
+    return Result.ok(result.data);
+  }
+  return Result.err(result.error);
+};
+
+// Transform during parse
+const ApiResponseSchema = z.object({
+  data: z.array(UserSchema),
+  total: z.number(),
+}).transform((val) => ({
+  users: val.data,
+  count: val.total,
+}));

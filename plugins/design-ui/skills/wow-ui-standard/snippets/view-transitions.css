@@ -1,0 +1,41 @@
+/* view-transitions.css — wow-ui-standard snippet (principle 9: endless magic)
+ * CSS-only cross-page morphs for multi-page apps (MPA) via the View
+ * Transitions API. Progressive enhancement: browsers without support simply
+ * navigate normally. ZERO JavaScript.
+ *
+ * Battle-tested notes (17.7.2026):
+ * - Works for same-origin MPA navigations only; both pages must opt in.
+ * - view-transition-name must be UNIQUE per page — a duplicate name on one
+ *   page silently breaks the whole transition.
+ * - Keep it fast: a cross-page fade over 300ms starts feeling like lag.
+ */
+
+@view-transition {
+  navigation: auto; /* opt this page into cross-document transitions */
+}
+
+/* Default root crossfade — snappy, ease-out. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+}
+
+/* Shared-element morph: give the SAME name to an element on both pages
+ * (e.g. a card on the list page and the hero on the detail page) and the
+ * browser morphs it across the navigation. Uncomment + rename per project:
+ *
+ * .project-card--active,
+ * .project-hero {
+ *   view-transition-name: project-hero;
+ * }
+ */
+
+/* Reduced-motion belt: no cross-page morphs at all. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

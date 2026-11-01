@@ -1,0 +1,54 @@
+/* progress-scalex.css — wow-ui-standard snippet (motion diet, RTL)
+ * Progress / loading bars on the motion diet: animate transform: scaleX()
+ * ONLY — never width. RTL: transform-origin is RIGHT so the bar grows from
+ * the right edge leftward, matching Hebrew reading direction.
+ * The overflow:hidden WRAPPER preserves the rounded corners while the inner
+ * fill scales (a scaled element ignores its own border-radius at the edges).
+ *
+ * Replace the two color fallbacks with the project's brand tokens.
+ */
+
+.wow-bar {
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bar-track, rgba(127, 127, 127, 0.2));
+  overflow: hidden; /* keeps border-radius intact while the fill scales */
+}
+
+.wow-bar > .wow-bar-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent, currentColor);
+  transform: scaleX(0);
+  transform-origin: right center; /* RTL: grow from the right. LTR sites: left. */
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Determinate steps with no JS at all: */
+.wow-bar.is-25 > .wow-bar-fill { transform: scaleX(0.25); }
+.wow-bar.is-50 > .wow-bar-fill { transform: scaleX(0.5); }
+.wow-bar.is-75 > .wow-bar-fill { transform: scaleX(0.75); }
+.wow-bar.is-100 > .wow-bar-fill { transform: scaleX(1); }
+
+/* JS-driven (any fraction 0..1):
+ *   fill.style.transform = "scaleX(" + fraction + ")";
+ *
+ * Scroll-progress variant (fixed top bar, passive listener):
+ *   #progress { position: fixed; top: 0; inset-inline: 0; height: 3px;
+ *     background: var(--accent); transform: scaleX(0);
+ *     transform-origin: right; pointer-events: none; }
+ *   var bar = document.getElementById("progress");
+ *   addEventListener("scroll", function () {
+ *     var h = document.documentElement;
+ *     var max = h.scrollHeight - h.clientHeight;
+ *     bar.style.transform = "scaleX(" + (max > 0 ? h.scrollTop / max : 0) + ")";
+ *   }, { passive: true });
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .wow-bar > .wow-bar-fill {
+    transition-duration: 0.001s !important;
+  }
+}

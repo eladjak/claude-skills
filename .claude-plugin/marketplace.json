@@ -1,0 +1,74 @@
+{
+  "name": "eladjak-skills",
+  "description": "Curated Claude Code skills by Elad Yakobovich",
+  "owner": {
+    "name": "Elad Yakobovich"
+  },
+  "plugins": [
+    {
+      "name": "agents-automation",
+      "source": "./plugins/agents-automation",
+      "description": "AI agents, councils, automation, Claude Code tooling"
+    },
+    {
+      "name": "ai-media",
+      "source": "./plugins/ai-media",
+      "description": "AI image, video, audio and creative generation"
+    },
+    {
+      "name": "backend-data",
+      "source": "./plugins/backend-data",
+      "description": "Backend, databases, APIs, cloud and deployment"
+    },
+    {
+      "name": "design-ui",
+      "source": "./plugins/design-ui",
+      "description": "UI/UX design: visual quality, anti-AI-slop, motion, design systems, mockups"
+    },
+    {
+      "name": "dev-workflow",
+      "source": "./plugins/dev-workflow",
+      "description": "Planning, git, code review, subagents and everyday development workflow"
+    },
+    {
+      "name": "frontend",
+      "source": "./plugins/frontend",
+      "description": "React, Next.js, Tailwind, shadcn, animation (GSAP, Three.js), mobile"
+    },
+    {
+      "name": "hebrew-rtl",
+      "source": "./plugins/hebrew-rtl",
+      "description": "Hebrew writing, editing, RTL layouts, i18n and Hebrew documents/presentations"
+    },
+    {
+      "name": "israel-business",
+      "source": "./plugins/israel-business",
+      "description": "Israeli business: invoicing, payments, tax, government data, calendars, WhatsApp, stocks"
+    },
+    {
+      "name": "israeli-skills",
+      "source": "./plugins/israeli-skills",
+      "description": "Israeli life and business skills from the skills-il collection (MIT): tax, VAT, bureaucracy, health system, real estate and more"
+    },
+    {
+      "name": "productivity",
+      "source": "./plugins/productivity",
+      "description": "Productivity, planning, scheduling and personal workflow"
+    },
+    {
+      "name": "research-docs",
+      "source": "./plugins/research-docs",
+      "description": "Research, documents, SEO/GEO, content and reports"
+    },
+    {
+      "name": "security",
+      "source": "./plugins/security",
+      "description": "Security, auth and supply-chain safety"
+    },
+    {
+      "name": "testing-debug",
+      "source": "./plugins/testing-debug",
+      "description": "Testing, debugging and QA"
+    }
+  ]
+}

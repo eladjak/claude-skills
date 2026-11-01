@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+# Per-target preflight checks. Each should be fast and touch no value.
+# Failures emit AUTH_FAIL or ADAPTER_ERROR on stderr with a remediation hint.
+
+preflight_check() {
+  local target="$1"
+  shift
+  case "$target" in
+    1password) _pf_1password ;;
+    keychain) _pf_keychain ;;
+    gh-secret) _pf_gh ;;
+    wrangler) _pf_wrangler ;;
+    coolify) _pf_coolify ;;
+    n8n) _pf_n8n ;;
+    env-file) : ;;
+    ssh) _pf_ssh ;;
+    *) echo "USAGE_ERROR: no preflight for target '$target'" >&2; return 2 ;;
+  esac
+}
+
+_pf_ssh() {
+  command -v ssh >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'ssh' not found" >&2; return 7; }
+}
+
+_pf_1password() {
+  command -v op >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'op' (1Password CLI) not found" >&2; return 7; }
+  command -v jq >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'jq' not found" >&2; return 7; }
+  # No `op whoami` preflight: with the desktop biometric integration,
+  # `op whoami` can return "not signed in" even when real item commands succeed
+  # (it doesn't trigger a session refresh like `op item get`/`op vault list` do).
+  # The adapter's own `op item get/create` calls will surface auth failures as
+  # ADAPTER_ERROR if authentication genuinely fails.
+}
+
+_pf_keychain() {
+  [[ "$(uname -s)" == "Darwin" ]] \
+    || { echo "ADAPTER_ERROR: keychain adapter is macOS-only" >&2; return 7; }
+  command -v security >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'security' not found" >&2; return 7; }
+  command -v expect >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'expect' required for leak-free keychain writes" >&2; return 7; }
+}
+
+_pf_gh() {
+  command -v gh >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'gh' (GitHub CLI) not found" >&2; return 7; }
+  gh auth status >/dev/null 2>&1 \
+    || { echo "AUTH_FAIL: GitHub CLI not authenticated (run: gh auth login)" >&2; return 8; }
+}
+
+_pf_wrangler() {
+  command -v wrangler >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'wrangler' (Cloudflare CLI) not found" >&2; return 7; }
+}
+
+_pf_coolify() {
+  command -v curl >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'curl' not found" >&2; return 7; }
+  command -v jq >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'jq' not found" >&2; return 7; }
+  command -v yq >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'yq' (Go version) required to read config — install: brew install yq" >&2; return 7; }
+  # Instance-specific config (url + api_key_source) is validated by the adapter
+  # itself once --coolify-instance is parsed — same pattern as n8n above.
+}
+
+_pf_n8n() {
+  command -v curl >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'curl' not found" >&2; return 7; }
+  command -v jq >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'jq' not found" >&2; return 7; }
+  command -v yq >/dev/null 2>&1 \
+    || { echo "ADAPTER_ERROR: 'yq' (Go version) required to read config — install: brew install yq" >&2; return 7; }
+}

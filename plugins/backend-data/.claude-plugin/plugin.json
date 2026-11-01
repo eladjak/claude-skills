@@ -1,0 +1,15 @@
+{
+  "name": "backend-data",
+  "description": "Backend, databases, APIs, cloud and deployment",
+  "version": "1.0.0",
+  "author": {
+    "name": "Elad Yakobovich"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/eladjak/claude-skills",
+  "repository": "https://github.com/eladjak/claude-skills",
+  "keywords": [
+    "skills",
+    "backend-data"
+  ]
+}

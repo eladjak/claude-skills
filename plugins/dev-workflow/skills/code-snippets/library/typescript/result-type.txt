@@ -1,0 +1,25 @@
+// Result Type Pattern (better-result style)
+
+import { Result } from 'better-result';
+
+// Success case
+const success = Result.ok({ id: 1, name: 'Example' });
+
+// Error case
+const error = Result.err(new Error('Something went wrong'));
+
+// Pattern matching
+result.match({
+  ok: (value) => console.log('Success:', value),
+  err: (error) => console.error('Error:', error),
+});
+
+// Chaining with map
+const mapped = result.map((value) => value.name);
+
+// Async with generator
+const process = Result.gen(function* () {
+  const user = yield* fetchUser(id);
+  const posts = yield* fetchPosts(user.id);
+  return { user, posts };
+});

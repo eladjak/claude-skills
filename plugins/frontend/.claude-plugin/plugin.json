@@ -1,0 +1,15 @@
+{
+  "name": "frontend",
+  "description": "React, Next.js, Tailwind, shadcn, animation (GSAP, Three.js), mobile",
+  "version": "1.0.0",
+  "author": {
+    "name": "Elad Yakobovich"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/eladjak/claude-skills",
+  "repository": "https://github.com/eladjak/claude-skills",
+  "keywords": [
+    "skills",
+    "frontend"
+  ]
+}

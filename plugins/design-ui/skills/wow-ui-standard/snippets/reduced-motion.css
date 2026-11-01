@@ -1,0 +1,55 @@
+/* reduced-motion.css — wow-ui-standard snippet
+ * The CSS layer of the reduced-motion TRIPLE BELT:
+ *   1) this CSS block — resets every transition/animation duration AND DELAY
+ *      (a delayed fill-mode:both entrance or a staggered item would otherwise
+ *      sit invisible for its whole delay) and restores the final visible
+ *      state of every choreographed element;
+ *   2) a JS matchMedia gate — effect scripts bail before arming observers,
+ *      canvases or audio (see scroll-reveal.js / count-up.js / sunrise-splash.md);
+ *   3) architecture — base states in the markup ARE the final visible states;
+ *      when the motion diet is pure transform/opacity *transitions*, there are
+ *      no @keyframes to fight at all.
+ *
+ * Paste at the END of the project stylesheet so it wins the cascade.
+ *
+ * IMPORTANT: the generic * rule below kills durations, but it does NOT
+ * restore hidden base states — EXTEND the explicit list with every
+ * reveal/entrance selector the project adds (this is the part teams forget).
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    transition-delay: 0s !important;
+  }
+
+  /* Restore the FINAL visible state of every choreographed element.
+     EXTEND per project: staggered lists, drawer items, hero entrances,
+     chart wrappers, logo strokes, wordmark letters... */
+  .wow-reveal,
+  .wow-reveal.out-up,
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Self-drawing SVG strokes render complete instantly. */
+  .wow-draw {
+    stroke-dashoffset: 0 !important;
+  }
+
+  /* Ambient layers (particles canvas, splash overlay) simply do not exist. */
+  .wow-particles,
+  .wow-splash {
+    display: none !important;
+  }
+}

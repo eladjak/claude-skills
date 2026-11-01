@@ -1,0 +1,55 @@
+// Type-safe Fetch Wrapper
+
+import { Result } from 'better-result';
+
+interface FetchOptions extends RequestInit {
+  timeout?: number;
+}
+
+class ApiError extends Error {
+  constructor(
+    public status: number,
+    public statusText: string,
+    public body?: unknown
+  ) {
+    super(`API Error: ${status} ${statusText}`);
+    this.name = 'ApiError';
+  }
+}
+
+async function fetchApi<T>(
+  url: string,
+  options: FetchOptions = {}
+): Promise<Result<T, ApiError | Error>> {
+  const { timeout = 30000, ...fetchOptions } = options;
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+  try {
+    const response = await fetch(url, {
+      ...fetchOptions,
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      const body = await response.json().catch(() => null);
+      return Result.err(new ApiError(response.status, response.statusText, body));
+    }
+
+    const data = await response.json();
+    return Result.ok(data as T);
+  } catch (error) {
+    clearTimeout(timeoutId);
+    return Result.err(error instanceof Error ? error : new Error(String(error)));
+  }
+}
+
+// Usage:
+// const result = await fetchApi<User[]>('/api/users');
+// result.match({
+//   ok: (users) => setUsers(users),
+//   err: (error) => setError(error.message),
+// });
