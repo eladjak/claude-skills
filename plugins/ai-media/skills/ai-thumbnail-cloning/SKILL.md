@@ -49,8 +49,5 @@ Add Hebrew text "[TEXT]" to the thumbnail:
 
 ## Related skills (pick the right one)
 - This skill **recreates an existing thumbnail/ad layout** with AI (face swap, outfit,
-  re-text). The Hebrew-RTL-overlay technique here is shared with `app-marketing-screenshots`.
-- To **frame a real screenshot** of one of the user's web apps into a device-mockup marketing
-  slide (App Store / social / landing hero), use **`app-marketing-screenshots`** instead —
-  it captures the live app (agent-browser) and composes a deterministic device frame +
-  caption with Pillow, rather than generating the whole image from a prompt.
+  re-text).
+- To **frame a real screenshot** of a web app into a device-mockup marketing slide, capture the live app (see `agent-browser`) and compose a device frame + caption with an image library rather than generating the whole image from a prompt.

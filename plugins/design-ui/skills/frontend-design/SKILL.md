@@ -4,7 +4,7 @@ description: Guidance for distinctive, intentional visual design when building n
 license: Complete terms in LICENSE.txt
 ---
 
-> Part of the UX standard - entry point: `ux-standard` (rules/ux-from-day-one.md). Load it first to see which design skill fits which job.
+> Part of the UX standard - entry point: `ux-standard`. Load it first to see which design skill fits which job.
 
 # Frontend Design
 

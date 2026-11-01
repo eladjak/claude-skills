@@ -12,7 +12,7 @@ description: Protocol for refactoring a deployed/live site without breaking prod
 2. **Smallest correct change** — prefer props/config over data-model rewrites.
 3. **Local gate** — `npx tsc --noEmit`, then assert **zero NEW errors outside known-bad files**. (Local `next build` may false-fail on cross-platform issues, e.g. Windows `three`/`@types` exports — verify against `vercel ls` Ready state, don't treat as a real blocker.)
 4. **Preview, not prod** — `git checkout -b <branch>`, commit ONLY the refactor files (`git add <specific>`), `git push -u origin <branch>` → Vercel auto-builds a **preview**. Verify preview **Ready** (`vercel ls`). For bundle work, inspect the client chunk.
-5. **Council on the diff** — invoke `council-of-future-greats` with ≥2 lenses: **behavior-preservation** + **RSC/runtime-correctness**. (Escalate to `council-of-sages` for architecture/blind-spot stakes.) A `BLOCK`/`FIX-FIRST` verdict is binding.
+5. **Council on the diff** — invoke `council-of-future-greats` with ≥2 lenses: **behavior-preservation** + **RSC/runtime-correctness**. (Escalate to an external second opinion for architecture/blind-spot stakes.) A `BLOCK`/`FIX-FIRST` verdict is binding.
 6. **Promote** only when preview Ready AND council clears → merge to main → re-verify prod Ready.
 7. **Blocked?** `git checkout main` + delete branch (local+remote) + document blocker & proper-fix path in PROGRESS.md. Never ship a half-fix.
 

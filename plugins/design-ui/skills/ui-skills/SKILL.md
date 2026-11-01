@@ -3,7 +3,7 @@ name: ui-skills
 description: Opinionated constraints for building better interfaces with agents.
 ---
 
-> Part of the UX standard - entry point: `ux-standard` (rules/ux-from-day-one.md). Load it first to see which design skill fits which job.
+> Part of the UX standard - entry point: `ux-standard`. Load it first to see which design skill fits which job.
 
 # UI Skills
 

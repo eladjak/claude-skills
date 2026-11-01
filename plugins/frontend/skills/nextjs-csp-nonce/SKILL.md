@@ -187,9 +187,7 @@ await browser.close();
 
 ## Reference: working implementation
 
-- File: `~/projects/portfolio-website/src/proxy.ts`
-- File: `~/projects/portfolio-website/scripts/csp-smoke-test.mjs`
-- Verified live: `curl -sI https://example.com/ | grep -i content-security-policy`
+- Verify live: `curl -sI https://example.com/ | grep -i content-security-policy`
 - Smoke test: 12 routes, 0 violations.
 
 ## See also

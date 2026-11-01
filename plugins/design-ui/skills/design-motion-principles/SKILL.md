@@ -3,7 +3,7 @@ name: design-motion-principles
 description: Expert motion and interaction design auditor based on Emil Kowalski, Jakub Krehel, and Jhey Tompkins' techniques. Use when reviewing UI animations, transitions, hover states, or any motion design work. Provides per-designer perspectives with context-aware weighting.
 ---
 
-> Part of the UX standard - entry point: `ux-standard` (rules/ux-from-day-one.md). Load it first to see which design skill fits which job.
+> Part of the UX standard - entry point: `ux-standard`. Load it first to see which design skill fits which job.
 
 # Design Motion Audit Skill
 

@@ -99,7 +99,7 @@ LLMs swap second-person plural with second-person formal (תרגישו vs תחו
 
 ## Pass 2 — Academy-of-Hebrew Language compliance
 
-Absorbed from former `hebrew-copy-editor` skill (May 18, 2026). The orthogonal mechanical pass: where Pass 1 catches LLM-induced errors, Pass 2 enforces Academy of the Hebrew Language standards on ANY Hebrew text (LLM-drafted or human-drafted).
+Absorbed from an earlier Hebrew copy-editor skill. The orthogonal mechanical pass: where Pass 1 catches LLM-induced errors, Pass 2 enforces Academy of the Hebrew Language standards on ANY Hebrew text (LLM-drafted or human-drafted).
 
 ### 2.1 — Initial text assessment
 
@@ -221,7 +221,7 @@ For 22 files this took ~70 min total per-agent in real practice (we ran 3 agents
 
 ## What NOT to change
 
-Per the user's project preferences:
+Per your project preferences:
 - Code examples (`codeExample.code` field, ```fenced blocks`)
 - Technical accuracy / version numbers / facts
 - Section structure / paradigm shift order / stat counts
@@ -250,9 +250,8 @@ Per the user's project preferences:
 
 ## See also
 
-- `a personal voice guide` — canonical voice skill; load FIRST when editing content meant to be in the user's register. This skill is the orthogonal mechanical-fix pass.
+- `your voice-guide skill` — canonical voice skill; load FIRST when editing content meant to be in the author's register. This skill is the orthogonal mechanical-fix pass.
 - `hebrew-writer` — for writing fresh Hebrew (not editing).
-- `hebrew-content-writer` / `hebrew-copy-editor` — older general skills, less LLM-specific.
 
 ## Error Handling Policies
 

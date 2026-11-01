@@ -77,7 +77,7 @@ Pricing different: $0.50/sec video-only, $0.75/sec with audio. **MORE expensive*
 
 ## fal.ai path (the user's current paid provider, also offers Veo 3.1)
 
-fal.ai exposes `fal-ai/veo3.1` — see existing `fal-ai` skill. Pricing matches or beats direct Google in some configs. Use this when:
+fal.ai exposes `fal-ai/veo3.1` — see fal.ai docs. Pricing matches or beats direct Google in some configs. Use this when:
 - Existing fal.ai integration in project
 - Need workflow chained with other fal.ai models (Flux → Veo, etc.)
 - Want single API + dashboard for image+video+audio
@@ -139,9 +139,4 @@ Use Veo 3.1 Light ($0.05) for 5-10 variant drafts → pick best → re-render at
 
 ## Cross-references
 
-- `fal-ai` — alternative provider, paid, multi-model dashboard
 - `kinetic-video-creator` — Hebrew/RTL post-processing + kinetic typography overlays
-- `nano-banana-poster` — Gemini image gen (free, for stills)
-- `nano-banana-pro` — Gemini 3 Pro image gen (higher quality stills)
-- `pyvideo` — Python video composition
-- `rules/gemini-visuals.md` — the user's "no placeholders" rule

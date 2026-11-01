@@ -85,11 +85,11 @@ Character descriptions: [paste character sheets]
 ### Stage 3: Image Generation (Nano Banana / Gemini)
 
 **Primary tool:** flow.nanobanana.com with Gemini subscription (100 images/day).
-**Fallback:** Direct API via `nano-banana-poster` skill.
+**Fallback:** Direct image-generation API call.
 
 ```bash
-# Via nano-banana-poster skill (direct API):
-cd ~/.claude/skills/nano-banana-poster/scripts
+# Via nano-banana-pro skill (direct API):
+cd ~/.claude/skills/nano-banana-pro/scripts
 node --loader ts-node/esm generate_poster.ts --aspect 16:9 "your shot prompt here"
 
 # Output: poster_0.jpg in scripts dir
@@ -222,7 +222,7 @@ const result = await fal.run("fal-ai/kling-video/v1.6/pro/image-to-video", {
 
 ### Stage 7: Final Assembly (Editing)
 
-Use **pyvideo skill** for Python+ffmpeg assembly:
+Use Python+ffmpeg for assembly:
 
 ```bash
 # Concatenate all animated clips
@@ -254,10 +254,10 @@ ffmpeg -i output_raw.mp4 -i soundtrack.mp3 -c:v copy -c:a aac \
 |------|-------------|---------|
 | Script translation | Gemini 1.5 Pro / NotebookLM | ChatGPT-4o |
 | Shot prompt writing | ChatGPT custom GPT (director) | Claude directly |
-| Image generation | Nano Banana (flow.nanobanana.com) | nano-banana-poster skill |
+| Image generation | Nano Banana (flow.nanobanana.com) | nano-banana-pro skill |
 | Animation | Veo 3.1 via fal-ai | Kling via fal-ai |
 | Voice narration | ElevenLabs via kinetic-video-creator | TTS alternatives |
-| Video editing | pyvideo skill (Python+ffmpeg) | kinetic-video-creator |
+| Video editing | Python+ffmpeg | kinetic-video-creator |
 | Character sheets | Gemini (Nano Banana) | DALL-E 3 |
 | Room panels | Gemini (Nano Banana) | Midjourney |
 
@@ -327,7 +327,7 @@ ffmpeg -i output_raw.mp4 -i soundtrack.mp3 -c:v copy -c:a aac \
 
 - **If Gemini generates an image instead of a text prompt:** Switch to ChatGPT for prompt generation; use Gemini only for image generation
 - **If character appears inconsistent between shots:** Re-generate using character sheet as reference image in fal-ai image-to-image mode
-- **If flow.nanobanana.com is slow or rate-limited:** Use direct Gemini API via nano-banana-poster skill
+- **If flow.nanobanana.com is slow or rate-limited:** Use direct Gemini API via nano-banana-pro skill
 - **If NotebookLM fails on very long scripts:** Split script into acts (Act 1, Act 2, Act 3) and process separately
 - **If fal-ai queue is long:** Submit multiple jobs in parallel, collect results when ready
 - **If animated clip doesn't match:** Regenerate still frame first, then re-animate with more specific motion prompt
@@ -387,9 +387,4 @@ Before proceeding to next stage:
 
 ## Related Skills
 
-- `nano-banana-poster` - Gemini image generation via CLI
-- `nano-banana-pro` - Gemini image generation API integration
-- `pyvideo` - Python+ffmpeg video editing
 - `kinetic-video-creator` - Animated text videos with narration
-- `fal-ai` - Veo 3.1 and Kling animation endpoints
-- `creative-ai-process` - General creative AI workflow patterns

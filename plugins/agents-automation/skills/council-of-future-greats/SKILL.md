@@ -19,7 +19,7 @@ when_to_use: |
 
 Multiple Claude subagents, each with a specialized role, working in parallel. Same model family — different prompts and lenses.
 
-**Distinct from:** `council-of-sages` (external peer LLMs — gpt-5.5/grok-4.3/gemini-3.1-pro).
+**Distinct from:** asking other LLMs (external models) for a second opinion.
 
 ## When this is the right tool
 

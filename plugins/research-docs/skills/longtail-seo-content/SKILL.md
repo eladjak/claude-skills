@@ -14,7 +14,7 @@ The compounding method for turning long-tail phrases into landing pages that ran
 - Launching content for a new site and want to start with a defensible topic cluster.
 
 ## Pre-flight (load these first)
-- For Hebrew: the skill pipeline `hebrew-writer → a personal voice guide (or brand voice) → hebrew-ai-copy-edit`.
+- For Hebrew: the skill pipeline `hebrew-writer → your voice-guide skill (or brand voice) → hebrew-ai-copy-edit`.
 
 ## The pipeline (5 steps)
 
@@ -67,4 +67,4 @@ Write packs to a project-scoped folder (e.g. `Documents/reports/<site>-longtail-
 - **No phrase list / no GSC access** → derive seeds from autocomplete + AI-engine "what do people ask" queries; flag that demand is unvalidated and prioritize by intent quality.
 - **Phrase can't be written without fabrication/partisanship** → reframe to informational/method angle, or drop and note why.
 - **i18n not yet present** → author in the base language, ship at root, but design the data model with a per-locale slug from day one so retrofit is cheap.
-- **Hebrew AI-tells slipping through** → run `hebrew-writer → a personal voice guide/brand → hebrew-ai-copy-edit` (order matters).
+- **Hebrew AI-tells slipping through** → run `hebrew-writer → your voice-guide skill/brand → hebrew-ai-copy-edit` (order matters).

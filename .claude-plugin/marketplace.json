@@ -51,11 +51,6 @@
       "description": "Israeli life and business skills from the skills-il collection (MIT): tax, VAT, bureaucracy, health system, real estate and more"
     },
     {
-      "name": "productivity",
-      "source": "./plugins/productivity",
-      "description": "Productivity, planning, scheduling and personal workflow"
-    },
-    {
       "name": "research-docs",
       "source": "./plugins/research-docs",
       "description": "Research, documents, SEO/GEO, content and reports"

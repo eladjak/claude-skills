@@ -19,8 +19,8 @@ description: |
   Hebrew text for AI tells, or matching someone's Hebrew writing voice.
   ALSO absorbs (May 18, 2026) hebrew-content-writer (marketing/UX/articles/
   emails/social posts + register guidance + Hebrew SEO) and hebrew-translator
-  (Hebrew-English technical translation). When target voice is the user, defers
-  to a personal voice guide. When mechanical edit needed, defers to hebrew-ai-copy-edit.
+  (Hebrew-English technical translation). When a specific person's voice is the target, defers
+  to your voice-guide skill. When mechanical edit needed, defers to hebrew-ai-copy-edit.
   Triggers: "write in Hebrew", "Hebrew content", "כתוב בעברית",
   "humanize Hebrew", "sound Israeli", "Hebrew blog", "Hebrew article",
   "rewrite in Hebrew", "detect AI Hebrew", "תכתוב לי", "shadow writer",
@@ -114,7 +114,7 @@ v2 gave you the Soul Layer. v3 upgrades the voice system from a basic 10-feature
 - **--setup Flow** — Dedicated onboarding: paste your writing, set gender, set content type preference. Creates a default voice profile in one go.
 - **42-Feature Voice Extraction** — Up from 10 features. 7 categories: Sentence Architecture (8), Vocabulary Profile (8), Discourse & Flow (6), Argumentation Style (5), Emotional Register (5), Punctuation & Formatting (4), Hebrew-Specific Patterns (6).
 - **Signature Passage Storage** — Extracts and saves 5-10 real passages (15-40 words each) from your writing as few-shot anchors. During generation, these passages serve as the style reference — not abstract descriptions.
-- **Smart Fusion Engine** — Clear rules for what the user's voice controls (style), what the skill always enforces (safety net), and what the Soul Layer always adds (depth). Documented conflict resolution.
+- **Smart Fusion Engine** — Clear rules for what the author's voice controls (style), what the skill always enforces (safety net), and what the Soul Layer always adds (depth). Documented conflict resolution.
 - **Research basis** — Based on stylometric-transfer (40+ feature JSON fingerprints), EMNLP 2025 finding that few-shot examples outperform statistical summaries, TinyStyler authorship embeddings, and Writer.com's dual-LLM voice extraction architecture.
 
 ---
@@ -3764,7 +3764,7 @@ Clean text only. Append score block if --show-score.
 
 # Content marketing patterns
 
-> Absorbed from former `hebrew-content-writer` skill (May 18, 2026). Use these when target voice is generic / client / non-the user. For the user's voice, load `~/.claude/skills/a personal voice guide/SKILL.md` first.
+> Absorbed from an earlier Hebrew content-writer skill. Use these when the target voice is generic or client-facing. For a specific person's voice, load that person's voice guide first.
 
 ## Content-type → register table
 
@@ -3839,5 +3839,5 @@ Response: `העלה את השירות לסביבת staging` (note: `staging` ret
 ## When NOT to use this section
 
 - The user needs creative Hebrew writing, not translation → use the main hebrew-writer modes (`--mode generate`, `--mode rewrite`)
-- The user is writing AS the user → load `a personal voice guide` instead
+- The author is writing as themselves → load `your voice-guide skill` instead
 - Translating legal text → defer to `hebrew-legal-research` for terminology validation

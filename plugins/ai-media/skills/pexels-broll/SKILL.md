@@ -8,7 +8,7 @@ license: MIT
 
 Fetches free, no-copyright 4K stock **video** and **photos** from the Pexels API by keyword and
 returns the best direct download URLs + metadata. Pairs with `remotion` and `kinetic-video-creator`
-(background footage), `nano-banana-poster` (when you'd rather generate than fetch), and any landing
+(background footage), an image-generation tool (when you'd rather generate than fetch), and any landing
 page that needs a free stock hero.
 
 ## Setup (one-time — requires-user)

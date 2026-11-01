@@ -4,26 +4,25 @@
 
 ## מה זה?
 
-אוסף סקילים (הוראות עבודה מוכנות) ל-Claude Code, שנאסף ונוקה על ידי אלעד יעקובוביץ'. סקיל הוא קובץ שמלמד את Claude לעבוד בצורה מסוימת: לכתוב עברית טבעית, לבנות ממשק יפה, לבדוק קוד, לטפל במע"מ ועוד. האוסף מחולק ל-13 חבילות לפי נושא, כדי שאפשר להתקין רק את מה שמעניין אתכם.
+אוסף סקילים (הוראות עבודה מוכנות) ל-Claude Code, שנאסף ונוקה על ידי אלעד יעקובוביץ'. סקיל הוא קובץ שמלמד את Claude לעבוד בצורה מסוימת: לכתוב עברית טבעית, לבנות ממשק יפה, לבדוק קוד, לטפל במע"מ ועוד. האוסף מחולק ל-12 חבילות לפי נושא, כדי שאפשר להתקין רק את מה שמעניין אתכם.
 
-**סך הכל: 303 סקילים** ב-13 חבילות (נספר מהתיקיות עצמן).
+**סך הכל: 205 סקילים** ב-12 חבילות (נספר מהתיקיות עצמן).
 
 | חבילה | נושא | סקילים |
 |---|---|---|
-| `agents-automation` | סוכני AI, מועצות, אוטומציה וכלי Claude Code | 16 |
-| `ai-media` | יצירת תמונות, וידאו ואודיו עם AI | 13 |
-| `backend-data` | שרת, מסדי נתונים, API, ענן ופריסה | 20 |
-| `design-ui` | עיצוב ממשקים (UI/UX): איכות חזותית, תנועה, מערכות עיצוב, נגישות | 30 |
-| `dev-workflow` | תכנון, גיט, סקירת קוד וסוכני-משנה: זרימת עבודה לפיתוח | 41 |
-| `frontend` | ריאקט, Next.js, Tailwind, אנימציה, מובייל | 38 |
-| `hebrew-rtl` | עברית וכתיבה בעברית, עריכה, RTL, מסמכים ומצגות בעברית | 16 |
-| `israel-business` | עסקים בישראל: חשבוניות, סליקה, יומן ושבת, וואטסאפ, בורסה | 20 |
+| `agents-automation` | סוכני AI, מועצות, אוטומציה וכלי Claude Code | 10 |
+| `ai-media` | יצירת תמונות, וידאו ואודיו עם AI | 9 |
+| `backend-data` | שרת, מסדי נתונים, API, ענן ופריסה | 4 |
+| `design-ui` | עיצוב ממשקים (UI/UX): איכות חזותית, תנועה, מערכות עיצוב, נגישות | 18 |
+| `dev-workflow` | תכנון, גיט, סקירת קוד וסוכני-משנה: זרימת עבודה לפיתוח | 20 |
+| `frontend` | ריאקט, Next.js, Tailwind, אנימציה, מובייל | 28 |
+| `hebrew-rtl` | עברית וכתיבה בעברית, עריכה, RTL, מסמכים ומצגות בעברית | 14 |
+| `israel-business` | עסקים בישראל: חשבוניות, סליקה, יומן ושבת, וואטסאפ, בורסה | 18 |
 | `israeli-skills` | אוסף skills-il: מיסים, מע"מ, ביורוקרטיה, בריאות, נדל"ן ועוד (רישיון MIT) | 69 |
-| `productivity` | פרודוקטיביות, יומן ותכנון | 6 |
-| `research-docs` | מחקר, SEO ו-GEO, תוכן ודוחות | 7 |
-| `security` | אבטחה, הזדהות ובטיחות שרשרת אספקה | 10 |
-| `testing-debug` | בדיקות, איתור באגים ו-QA | 17 |
-| **סה"כ** | | **303** |
+| `research-docs` | מחקר, SEO ו-GEO, תוכן ודוחות | 5 |
+| `security` | אבטחה, הזדהות ובטיחות שרשרת אספקה | 3 |
+| `testing-debug` | בדיקות, איתור באגים ו-QA | 7 |
+| **סה"כ** | | **205** |
 
 ## התקנה (גם אם אתם לא מתכנתים)
 
@@ -55,7 +54,6 @@
 /plugin install hebrew-rtl@eladjak-skills
 /plugin install israel-business@eladjak-skills
 /plugin install israeli-skills@eladjak-skills
-/plugin install productivity@eladjak-skills
 /plugin install research-docs@eladjak-skills
 /plugin install security@eladjak-skills
 /plugin install testing-debug@eladjak-skills
@@ -69,7 +67,7 @@
 
 ### למי שמתחיל (למשל מורה למוזיקה)
 
-כדאי להתחיל עם `hebrew-rtl` (כתיבה ועריכה בעברית), `productivity` ו-`research-docs`. אם משהו לא ברור, שואלים את Claude: "אילו סקילים יש לי ומה כל אחד עושה?".
+כדאי להתחיל עם `hebrew-rtl` (כתיבה ועריכה בעברית) ו-`research-docs`. אם משהו לא ברור, שואלים את Claude: "אילו סקילים יש לי ומה כל אחד עושה?".
 
 ## קרדיטים ורישיונות
 
@@ -86,24 +84,23 @@
 
 A cleaned, shared collection of Claude Code skills (reusable instruction sets) by Elad Yakobovich, packaged as a plugin marketplace.
 
-**Total: 303 skills in 13 plugins** (counted from the folders).
+**Total: 205 skills in 12 plugins** (counted from the folders).
 
 | Plugin | Topic | Skills |
 |---|---|---|
-| `agents-automation` | AI agents, councils, automation, Claude Code tooling | 16 |
-| `ai-media` | AI image, video, audio and creative generation | 13 |
-| `backend-data` | Backend, databases, APIs, cloud and deployment | 20 |
-| `design-ui` | UI/UX design: visual quality, anti-AI-slop, motion, design systems, mockups | 30 |
-| `dev-workflow` | Planning, git, code review, subagents and everyday development workflow | 41 |
-| `frontend` | React, Next.js, Tailwind, shadcn, animation (GSAP, Three.js), mobile | 38 |
-| `hebrew-rtl` | Hebrew writing, editing, RTL layouts, i18n and Hebrew documents/presentations | 16 |
-| `israel-business` | Israeli business: invoicing, payments, tax, government data, calendars, WhatsApp, stocks | 20 |
+| `agents-automation` | AI agents, councils, automation, Claude Code tooling | 10 |
+| `ai-media` | AI image, video, audio and creative generation | 9 |
+| `backend-data` | Backend, databases, APIs, cloud and deployment | 4 |
+| `design-ui` | UI/UX design: visual quality, anti-AI-slop, motion, design systems, mockups | 18 |
+| `dev-workflow` | Planning, git, code review, subagents and everyday development workflow | 20 |
+| `frontend` | React, Next.js, Tailwind, shadcn, animation (GSAP, Three.js), mobile | 28 |
+| `hebrew-rtl` | Hebrew writing, editing, RTL layouts, i18n and Hebrew documents/presentations | 14 |
+| `israel-business` | Israeli business: invoicing, payments, tax, government data, calendars, WhatsApp, stocks | 18 |
 | `israeli-skills` | Israeli life and business skills from the skills-il collection (MIT): tax, VAT, bureaucracy, health system, real estate and more | 69 |
-| `productivity` | Productivity, planning, scheduling and personal workflow | 6 |
-| `research-docs` | Research, documents, SEO/GEO, content and reports | 7 |
-| `security` | Security, auth and supply-chain safety | 10 |
-| `testing-debug` | Testing, debugging and QA | 17 |
-| **Total** | | **303** |
+| `research-docs` | Research, documents, SEO/GEO, content and reports | 5 |
+| `security` | Security, auth and supply-chain safety | 3 |
+| `testing-debug` | Testing, debugging and QA | 7 |
+| **Total** | | **205** |
 
 ## Install
 
@@ -124,7 +121,6 @@ Install everything:
 /plugin install hebrew-rtl@eladjak-skills
 /plugin install israel-business@eladjak-skills
 /plugin install israeli-skills@eladjak-skills
-/plugin install productivity@eladjak-skills
 /plugin install research-docs@eladjak-skills
 /plugin install security@eladjak-skills
 /plugin install testing-debug@eladjak-skills

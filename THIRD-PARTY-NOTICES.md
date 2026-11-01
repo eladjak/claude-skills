@@ -1,6 +1,6 @@
 # Third-party notices
 
-Most skills here were written by Elad Yakobovich (MIT, see LICENSE). Some come from other authors and keep their own licenses, listed below. Where a skill folder has its own LICENSE file it is kept as is.
+Many skills here were written by Elad Yakobovich (MIT, see LICENSE). Others come from other authors and keep their own licenses, listed below. Where a skill folder has its own LICENSE file it is kept as is. Full license texts are in the `LICENSES/` folder (MIT template, Apache-2.0).
 
 ## Callstack - MIT (1 skills)
 github-workflows
@@ -26,12 +26,38 @@ expo-cicd-workflows
 ## vercel - MIT (3 skills)
 composition-patterns, react-native-skills, vercel-react-best-practices
 
+## More MIT-licensed sources (license text: `LICENSES/MIT-template.txt`, with the copyright line shown)
+
+- **[obra/superpowers](https://github.com/obra/superpowers)** - Copyright (c) 2025 Jesse Vincent (adapted, some shortened): dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, subagent-driven-development, systematic-debugging, using-git-worktrees, using-superpowers, writing-plans, writing-skills
+- **[affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code)** - Copyright (c) 2026 Affaan Mustafa: clickhouse-io, continuous-learning, continuous-learning-v2, eval-harness, golang-patterns, golang-testing, iterative-retrieval, postgres-patterns (itself based on Supabase Agent Skills, MIT, Copyright (c) 2026 Supabase), strategic-compact
+- **[ibelick/ui-skills](https://github.com/ibelick/ui-skills)** - Copyright (c) 2026 Julien Thibeaut: baseline-ui, fixing-accessibility, fixing-metadata, fixing-motion-performance, ui-skills
+- **[kylezantos/design-motion-principles](https://github.com/kylezantos/design-motion-principles)** - Copyright (c) 2026 Kyle Zantos: design-motion-principles
+- **[jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better)** - Copyright (c) 2026 Jakub Krehel: make-interfaces-feel-better
+- **[nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)** - Copyright (c) 2024 Next Level Builder: ui-ux-pro-max
+- **[shadcn-ui/ui](https://github.com/shadcn-ui/ui)** - Copyright (c) 2023 shadcn: shadcn
+- **[Nutlope/hallmark](https://github.com/Nutlope/hallmark)** - Copyright (c) 2026 Hallmark contributors: hallmark
+- **[danielmiessler/PAI](https://github.com/danielmiessler/PAI) / LifeOS** - Copyright (c) 2025-2026 Daniel Miessler: isa
+- **[imaman/skills](https://github.com/imaman/skills)** - Copyright (c) 2026 imaman (renamed from regression-dog): reality-check
+- **[OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files)** - Copyright (c) 2026 Ahmad Adi (trimmed): planning-with-files
+- **[dmmulroy/better-result](https://github.com/dmmulroy/better-result)** - Copyright (c) 2026 Dillon Mulroy: better-result-adopt
+- **[oil-oil/beautify-github-readme](https://github.com/oil-oil/beautify-github-readme)** - Copyright (c) 2026 oil-oil: beautify-github-readme
+- **[diffusionstudio/lottie](https://github.com/diffusionstudio/lottie)** - Copyright (c) 2026 Diffusion Studio Inc.: text-to-lottie
+
+## Apache-2.0 sources (license text: `LICENSES/Apache-2.0.txt`; files were modified or shortened where noted)
+
+- **[google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills)** - Copyright 2026 Google LLC (some files modified/shortened): design-md, enhance-prompt, react-components, remotion, shadcn-ui, stitch-loop
+- **[vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)** - Copyright 2025 Vercel Inc. (older version, modified): agent-browser, dogfood
+- **[waynesutton/convexskills](https://github.com/waynesutton/convexskills)** - Copyright 2026 Convex, Inc.: avoid-feature-creep
+- **[JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman)** - no holder line in upstream LICENSE; older version, modified: caveman
+- **[pbakaus/impeccable](https://github.com/pbakaus/impeccable)** - Paul Bakaus; `impeccable-style` is a distilled methodology note, not a copy: impeccable-style
+
+## Original work (Elad Yakobovich, MIT)
+
+ai-film-production (idea credit: Elchanan Porten's pipeline), ai-thumbnail-cloning, claude-desktop-updater, council-of-future-greats, dep-scan, gemini-omni-video, geo-aeo-optimizer, geo-scan, google-veo-video, hebrew-ai-copy-edit, hebrew-presentations, hebrew-writer, hook-doctor, interactive-faq-chat, iteration-report, kinetic-video-creator, longtail-seo-content, multi-model-cross-review, nextjs-csp-nonce, overnight-claude (idea credit: levelsio), presentation-architect, product-explosion-photo, rtl-design, safe-live-refactor, sage, seedance-master-prompt, sure, team-build, typesafe-as-a-judge, typesafe-session-control, typesafe-usage-summary, ux-standard, venture-stress-test, wow-ui-standard
+
 ## Other credits
-- Workflow skills (planning, subagent-driven development, git worktrees, systematic debugging, writing plans/skills) follow the ideas of [obra/superpowers](https://github.com/obra/superpowers) (MIT).
-- A large community skills collection by Yuval Avidani is at [hoodini/ai-agents-skills](https://github.com/hoodini/ai-agents-skills). Nothing was copied from it into this repo.
-- `kinetic-video-creator` credits its original author inside the skill.
+- Three Vercel skills (composition-patterns, react-native-skills, vercel-react-best-practices) declare `license: MIT` in their own frontmatter; the upstream repo has no separate LICENSE file.
+- A community skills collection by Yuval Avidani is at [hoodini/ai-agents-skills](https://github.com/hoodini/ai-agents-skills).
 
-## Skills with no license or author stated in their metadata
-These were collected over time and some may be adapted from public sources whose license was not recorded. If you are the author of one and want credit or removal, open an issue.
-
-agent-auth-security, agent-browser, agent-workflow-builder, ai-film-production, ai-thumbnail-cloning, analytics-metrics, api-patterns, api-tester, automation-builder, avoid-feature-creep, aws-account-management, aws-agentcore, aws-strands, baseline-ui, beautify-github-readme, better-auth-best-practices, better-result-adopt, better-styled, bun, calendar, caveman, chrome-browser-automation, claude-desktop-updater, clickhouse-io, cloudflare, code-reviewer, code-snippets, codex-security, continuous-learning, continuous-learning-v2, control-surface-audit, copilot-docs, copilot-overnight, copilot-sdk, council-of-future-greats, create-auth-skill, creative-ai-process, creative-seeds, daily-summary, dashboard-designer, database-patterns, debug-helper, deep-interview, dep-scan, design-lab, design-md, design-motion-principles, dispatching-parallel-agents, doc-writer, dogfood, email-writer, enhance-prompt, env-checker, error-handling-patterns, eval-harness, executing-plans, fal-ai, figma, file-manager, finishing-a-development-branch, fixing-accessibility, fixing-metadata, fixing-motion-performance, framer-motion-patterns, gemini-omni-video, geo-aeo-optimizer, geo-scan, gh-pages-deploy, git-helper, git-patterns, github-trending, golang-patterns, golang-testing, google-stitch, google-veo-video, hallmark, hebrew-ai-copy-edit, hebrew-presentations, hebrew-writer, honest-agent, hook-doctor, html-to-pdf, image-creator, impeccable-style, interactive-faq-chat, isa, iteration-report, iterative-retrieval, kinetic-video-creator, langchain, learning-tracker, local-llm-router, log-analyzer, longtail-seo-content, lsp-integration, make-interfaces-feel-better, mcp-discovery, mcp-security, meeting-scheduler, mermaid-diagrams, mobile-responsiveness, mongodb, multi-model-cross-review, nano-banana-pro, nextjs-csp-nonce, nextjs-patterns, node-patterns, overnight-claude, owasp-security, planning-with-files, playwright-patterns, postgres-patterns, presentation-architect, product-explosion-photo, project-health, project-init, project-organizer, quick-commands, radon-mcp, railway, react-components, react-patterns, react-query-patterns, reality-check, receiving-code-review, remotion, requesting-code-review, resend-email, rtl-design, safe-live-refactor, sage, script-timer, security-checker, security-patterns, seedance-master-prompt, semantic-code-understanding, session-tracker, shabbat-times, shadcn, shadcn-ui, skill-search, snippet-expander, stitch-loop, stop-vibe-merging, strategic-compact, subagent-driven-development, sure, systematic-debugging, tailwind-patterns, tap-test, team-build, template-manager, ten-by-ten, terminal-visualizer, test-generator, testing-patterns, text-to-lottie, typesafe-as-a-judge, typesafe-session-control, typesafe-usage-summary, typescript-patterns, ui-skills, ui-ux-pro-max, using-git-worktrees, using-superpowers, ux-design-systems, ux-standard, v0-to-claude, venture-stress-test, vercel, vitest-patterns, web-accessibility, web-design-guidelines, whatsapp-business-api, wordpress-publisher, wow-ui-standard, writing-plans, writing-skills, zustand-patterns
+## Removed on 1.11.2026 (license check)
+98 skills were removed because no permissive license could be verified (upstream repo has no LICENSE file, only a README line; a blog post; or the origin could not be determined). If you are the author and want a skill restored with attribution, or can confirm its license, open an issue.

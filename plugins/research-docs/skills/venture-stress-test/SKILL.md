@@ -111,6 +111,6 @@ description: "סקיל למחקר עומק והערכה ביקורתית של ר
 ```
 
 ## חיבורים
-- מחובר ל: `omc-plan`, `omc-autopilot`, `brainstorming`
+- מחובר ל: תכנון (plan) ו-brainstorming
 - מפעיל: `document-specialist` agents למחקר שוק
 - מזין: `planning-with-files` ו-`writing-plans`

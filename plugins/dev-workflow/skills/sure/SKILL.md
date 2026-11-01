@@ -35,5 +35,5 @@ fix: <smallest correct change>   (or: "LOW → researching first, no code yet")
 ## Hard rules
 - LOW confidence → no code. Period. Research until MEDIUM+.
 - Never ship a workaround when the root cause is unknown — say it's a workaround if it is.
-- After fixing, VERIFY (run the test / repro). Don't claim fixed without evidence (see `verification-before-completion`).
+- After fixing, VERIFY (run the test / repro). Don't claim fixed without evidence.
 - This is a fast gate; it complements — does not replace — `systematic-debugging`, `safe-live-refactor`, `reality-check`.

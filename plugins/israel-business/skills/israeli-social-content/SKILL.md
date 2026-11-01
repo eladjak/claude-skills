@@ -50,7 +50,7 @@ metadata:
 
 ## Voice authority
 
-For ANY the user-voiced output, this skill defers to `~/.claude/skills/a personal voice guide/SKILL.md`. Always invoke a personal voice guide for tone+register+REGISTER GATE before final draft. This skill provides domain knowledge (Israeli market norms, channel-specific best practices); a personal voice guide provides the voice.
+For ANY personal-voice output, this skill defers to your own voice-guide skill. Always invoke your voice-guide skill for tone+register+REGISTER GATE before final draft. This skill provides domain knowledge (Israeli market norms, channel-specific best practices); your voice-guide skill provides the voice.
 
 # Israeli Social Content
 

@@ -73,4 +73,4 @@ description: "שלב העיצוב, הבנייה והייצוא של מצגת ב�
 - גופנים שאינם Heebo בפריסה מחייבים להטמיע/להתקין; בלי זה הדפדפן יחליף וההתפרצות תשתנה.
 - תלויות מקובעות: `python-pptx==1.0.2`, `playwright==1.58.0` (+ `playwright install chromium`), `qrcode-generator 1.4.4` (מצורף), Heebo (OFL, מצורף). bun/npm לא נדרשים.
 
-Related: `presentation-architect` (תוכן) · `hebrew-rtl-web-gotchas` · `wow-ui-standard` (לאתרים, לא למצגות) · `claude-design-workflow` (חלופה: claude.ai/design לדפי שיווק סטטיים)
+Related: `presentation-architect` (תוכן) · `hebrew-rtl-web-gotchas` · `wow-ui-standard` (לאתרים, לא למצגות)

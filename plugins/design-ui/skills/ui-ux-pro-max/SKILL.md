@@ -3,7 +3,7 @@ name: ui-ux-pro-max
 description: "AI-powered design intelligence toolkit with searchable databases of UI styles, color palettes, font pairings, chart types, and UX guidelines. Use when building UI, choosing design styles, selecting typography, picking color palettes, designing landing pages, or following UX best practices."
 ---
 
-> Part of the UX standard - entry point: `ux-standard` (rules/ux-from-day-one.md). Load it first to see which design skill fits which job.
+> Part of the UX standard - entry point: `ux-standard`. Load it first to see which design skill fits which job.
 
 # CLAUDE.md
 

@@ -94,8 +94,8 @@ jq -r '.choices[0].message.content // .error.message // "NO_OUTPUT"' /tmp/grok-o
 #### Gemini (Google)
 
 ```bash
-# Gemini API key lives in nano-banana-poster's .env
-source ~/.claude/skills/nano-banana-poster/scripts/.env  # GEMINI_API_KEY
+# Gemini API key lives in nano-banana-pro's .env
+source ~/.claude/skills/nano-banana-pro/scripts/.env  # GEMINI_API_KEY
 
 jq -n \
   --arg p "$PROMPT" \
@@ -188,5 +188,5 @@ After all reviewers respond:
 ## See also
 
 - Memory: `feedback_multi_model_review.md` — observations from a real session.
-- Skill: `code-reviewer` — for single-reviewer pattern.
+- Agent: `code-reviewer` — for single-reviewer pattern.
 - OMC skill: `omc-team` — for multi-agent coordination at the Claude level.

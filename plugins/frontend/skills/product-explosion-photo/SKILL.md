@@ -18,17 +18,17 @@ triggers:
 
 A viral photography trend where products/food appear as an "explosion" of their ingredients/components on a solid black background (#000000). Professional photoshoot style. Simple prompt, stunning results.
 
-## Backend: nano-banana-poster
+## Backend: nano-banana-pro
 
-This skill delegates all image generation to the **nano-banana-poster** skill, which wraps Google's Gemini image generation API.
+This skill delegates all image generation to the **nano-banana-pro** skill, which wraps Google's Gemini image generation API.
 
-- **Script:** `~/.claude/skills/nano-banana-poster/scripts/generate_poster.ts`
-- **API Key:** `~/.claude/skills/nano-banana-poster/scripts/.env` (requires `GEMINI_API_KEY`)
+- **Script:** `~/.claude/skills/nano-banana-pro/scripts/generate_poster.ts`
+- **API Key:** `~/.claude/skills/nano-banana-pro/scripts/.env` (requires `GEMINI_API_KEY`)
 - **Output:** `poster_0.jpg` in the scripts directory (copy/rename as needed)
 - **Model:** Gemini (via `@google/genai` SDK)
 
-> If the API key is missing or expired, check `~/.claude/skills/nano-banana-poster/scripts/.env`.
-> See `~/.claude/skills/nano-banana-poster/SKILL.md` for full API reference and options.
+> If the API key is missing or expired, check `~/.claude/skills/nano-banana-pro/scripts/.env`.
+> See `~/.claude/skills/nano-banana-pro/SKILL.md` for full API reference and options.
 
 ## The Core Prompt Template
 
@@ -38,9 +38,9 @@ This skill delegates all image generation to the **nano-banana-poster** skill, w
 
 ## How to Generate
 
-### Using nano-banana-poster (the ONLY backend):
+### Using nano-banana-pro (the ONLY backend):
 ```bash
-cd ~/.claude/skills/nano-banana-poster/scripts
+cd ~/.claude/skills/nano-banana-pro/scripts
 
 # Food example - Falafel
 node --loader ts-node/esm generate_poster.ts "צור תמונה של מנת פלאפל ישראלי מגרה ועמוסה בסלטים, עם טחינה ועמבה על רקע שחור סולידי (#000000), בסגנון צילום מקצועי, professional photoshoot, בלי אביזרים ברקע. תוסיף פירוט של כל מרכיב בצורה שתיראה כמו פיצוץ של המרכיבים"
@@ -51,7 +51,7 @@ node --loader ts-node/esm generate_poster.ts "צור תמונה של מחשב נ
 # Copy output to your project
 cp poster_0.jpg ~/projects/my-project/public/product-explosion.jpg
 
-# Aspect ratios (passed to nano-banana-poster):
+# Aspect ratios (passed to nano-banana-pro):
 # --aspect 1:1  → Instagram square
 # --aspect 9:16 → Instagram story/reel
 # --aspect 16:9 → YouTube thumbnail
@@ -60,7 +60,7 @@ cp poster_0.jpg ~/projects/my-project/public/product-explosion.jpg
 
 ### With reference image (style matching):
 ```bash
-cd ~/.claude/skills/nano-banana-poster/scripts
+cd ~/.claude/skills/nano-banana-pro/scripts
 node --loader ts-node/esm generate_poster.ts --assets "/path/to/reference.jpg" "Create product explosion in the same style as the reference, solid black background #000000, professional photoshoot"
 ```
 
@@ -107,8 +107,8 @@ node --loader ts-node/esm generate_poster.ts --assets "/path/to/reference.jpg" "
 - **If background isn't pure black:** add "pure solid black background, no gradients, no textures" to the prompt
 - **If explosion isn't dramatic enough:** add "dramatic deconstructed view, floating ingredients, cinematic lighting"
 - **If too cluttered:** reduce number of components described
-- **If API key error:** check `~/.claude/skills/nano-banana-poster/scripts/.env` has valid `GEMINI_API_KEY`
-- **If script not found:** run `cd ~/.claude/skills/nano-banana-poster/scripts && npm install` to reinstall deps
+- **If API key error:** check `~/.claude/skills/nano-banana-pro/scripts/.env` has valid `GEMINI_API_KEY`
+- **If script not found:** run `cd ~/.claude/skills/nano-banana-pro/scripts && npm install` to reinstall deps
 - **If output is 0 bytes:** retry once; Gemini occasionally returns empty responses
 
 ## Success Criteria
@@ -119,6 +119,4 @@ node --loader ts-node/esm generate_poster.ts --assets "/path/to/reference.jpg" "
 - Output file > 0 bytes and looks appetizing/impressive
 
 ## Related Skills
-- `nano-banana-poster` - The image generation backend used by this skill (Gemini API)
-- `image-creator` - Canva-based design (for templates, not AI generation)
-- `ai-film-production` - Full film pipeline (also uses nano-banana-poster for frame generation)
+- `ai-film-production` - Full film pipeline (also uses nano-banana-pro for frame generation)

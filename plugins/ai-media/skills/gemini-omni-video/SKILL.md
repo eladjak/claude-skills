@@ -6,7 +6,7 @@ tier: B (deferred, awaiting API)
 status: DEFERRED-API-NOT-RELEASED
 revisit_date: 2026-07-15
 created: 2026-05-19
-cross_links: [google-veo-video, kinetic-video-creator, fal-ai, nano-banana-poster]
+cross_links: [google-veo-video, kinetic-video-creator, fal-ai, nano-banana-pro]
 ---
 
 # Gemini Omni Flash — placeholder skill (May 19, 2026)
@@ -41,11 +41,11 @@ Google launched **Gemini Omni Flash** at Google I/O 2026 keynote (today, May 19,
 | Need | Use today | When Omni API drops |
 |---|---|---|
 | Text → 8s video w/ audio | **`google-veo-video`** (Veo 3.1, $0.05-0.40/clip, API live) | Consider Omni for multi-input prompts |
-| Image → motion → video | `fal-ai` (Kling, Hunyuan, paid) or `kinetic-video-creator` | Omni native, single call |
+| Image → motion → video | fal.ai (Kling, Hunyuan, paid) or `kinetic-video-creator` | Omni native, single call |
 | Hebrew text overlay on video | `kinetic-video-creator` (post-processing) | Test Omni Hebrew fidelity first |
 | Conversational video editing | None — Flow / Gemini app manually | Omni's killer feature |
 | Combine image + audio + text into video | Multi-step (Veo + ffmpeg) | Omni single-shot |
-| Photo-realistic Hebrew UI mockups (still images) | `nano-banana-poster` (gpt-image-2) | Unchanged — Omni is video |
+| Photo-realistic Hebrew UI mockups (still images) | an image model (gpt-image-2) | Unchanged — Omni is video |
 
 ## What to do NOW (May 19 → API drop)
 
@@ -63,7 +63,6 @@ When the API drops, this skill needs:
 - [ ] Document pricing per output second / per video
 - [ ] Test multi-input flow (image + audio + text → video)
 - [ ] Test Hebrew prompt + Hebrew text overlay fidelity
-- [ ] Add to `~/projects/voice-chat-claude/avatar-prototype/` if cheaper than current TTS+lip-sync stack
 - [ ] Update `google-veo-video` SKILL.md to cross-reference Omni for multi-input cases
 - [ ] Bump tier from B-deferred to A-active
 
@@ -104,4 +103,4 @@ When this skill graduates from DEFERRED → ACTIVE:
 
 ---
 
-**Cross-links:** [`google-veo-video`](../google-veo-video/SKILL.md) · [`kinetic-video-creator`](../kinetic-video-creator/SKILL.md) · [`fal-ai`](../fal-ai/SKILL.md) · [`nano-banana-poster`](../nano-banana-poster/SKILL.md)
+**Cross-links:** [`google-veo-video`](../google-veo-video/SKILL.md) · [`kinetic-video-creator`](../kinetic-video-creator/SKILL.md)

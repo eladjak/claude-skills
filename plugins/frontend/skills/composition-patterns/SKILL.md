@@ -62,12 +62,7 @@ Reference these guidelines when:
 
 ## How to Use
 
-Read individual rule files for detailed explanations and code examples:
-
-```
-rules/architecture-avoid-boolean-props.md
-rules/state-context-interface.md
-```
+The per-rule files (detailed explanations and code examples) live in the upstream repository, [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills); this copy keeps the summary only.
 
 Each rule file contains:
 

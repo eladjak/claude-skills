@@ -3,7 +3,7 @@ name: baseline-ui
 description: Enforces an opinionated UI baseline to prevent AI-generated interface slop.
 ---
 
-> Part of the UX standard - entry point: `ux-standard` (rules/ux-from-day-one.md). Load it first to see which design skill fits which job.
+> Part of the UX standard - entry point: `ux-standard`. Load it first to see which design skill fits which job.
 
 # Baseline UI
 

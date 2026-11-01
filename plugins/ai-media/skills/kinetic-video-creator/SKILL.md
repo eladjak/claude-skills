@@ -286,7 +286,7 @@ Never send Hebrew via curl. Use Node.js `https` module with `Buffer.byteLength(b
 
 ## Credits
 
-Created by Elad Jacoby
+Created by Elad Yakobovich
 Powered by Claude Opus 4.6
 
 ---
