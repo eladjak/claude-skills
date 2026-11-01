@@ -6,23 +6,25 @@
 
 אוסף סקילים (הוראות עבודה מוכנות) ל-Claude Code, שנאסף ונוקה על ידי אלעד יעקובוביץ'. סקיל הוא קובץ שמלמד את Claude לעבוד בצורה מסוימת: לכתוב עברית טבעית, לבנות ממשק יפה, לבדוק קוד, לטפל במע"מ ועוד. האוסף מחולק ל-12 חבילות לפי נושא, כדי שאפשר להתקין רק את מה שמעניין אתכם.
 
-**סך הכל: 205 סקילים** ב-12 חבילות (נספר מהתיקיות עצמן).
+**סך הכל: 229 סקילים** ב-12 חבילות (נספר מהתיקיות עצמן).
+
+קרדיט: 24 מהסקילים מגיעים מהאוסף הציבורי של יובל אבידני, [hoodini/ai-agents-skills](https://github.com/hoodini/ai-agents-skills) (ה-README שלו מצהיר על רישיון MIT).
 
 | חבילה | נושא | סקילים |
 |---|---|---|
-| `agents-automation` | סוכני AI, מועצות, אוטומציה וכלי Claude Code | 10 |
-| `ai-media` | יצירת תמונות, וידאו ואודיו עם AI | 9 |
-| `backend-data` | שרת, מסדי נתונים, API, ענן ופריסה | 4 |
-| `design-ui` | עיצוב ממשקים (UI/UX): איכות חזותית, תנועה, מערכות עיצוב, נגישות | 18 |
-| `dev-workflow` | תכנון, גיט, סקירת קוד וסוכני-משנה: זרימת עבודה לפיתוח | 20 |
-| `frontend` | ריאקט, Next.js, Tailwind, אנימציה, מובייל | 28 |
+| `agents-automation` | סוכני AI, מועצות, אוטומציה וכלי Claude Code | 13 |
+| `ai-media` | יצירת תמונות, וידאו ואודיו עם AI | 11 |
+| `backend-data` | שרת, מסדי נתונים, API, ענן ופריסה | 11 |
+| `design-ui` | עיצוב ממשקים (UI/UX): איכות חזותית, תנועה, מערכות עיצוב, נגישות | 22 |
+| `dev-workflow` | תכנון, גיט, סקירת קוד וסוכני-משנה: זרימת עבודה לפיתוח | 23 |
+| `frontend` | ריאקט, Next.js, Tailwind, אנימציה, מובייל | 30 |
 | `hebrew-rtl` | עברית וכתיבה בעברית, עריכה, RTL, מסמכים ומצגות בעברית | 14 |
-| `israel-business` | עסקים בישראל: חשבוניות, סליקה, יומן ושבת, וואטסאפ, בורסה | 18 |
+| `israel-business` | עסקים בישראל: חשבוניות, סליקה, יומן ושבת, וואטסאפ, בורסה | 19 |
 | `israeli-skills` | אוסף skills-il: מיסים, מע"מ, ביורוקרטיה, בריאות, נדל"ן ועוד (רישיון MIT) | 69 |
-| `research-docs` | מחקר, SEO ו-GEO, תוכן ודוחות | 5 |
-| `security` | אבטחה, הזדהות ובטיחות שרשרת אספקה | 3 |
+| `research-docs` | מחקר, SEO ו-GEO, תוכן ודוחות | 6 |
+| `security` | אבטחה, הזדהות ובטיחות שרשרת אספקה | 4 |
 | `testing-debug` | בדיקות, איתור באגים ו-QA | 7 |
-| **סה"כ** | | **205** |
+| **סה"כ** | | **229** |
 
 ## התקנה (גם אם אתם לא מתכנתים)
 
@@ -84,23 +86,25 @@
 
 A cleaned, shared collection of Claude Code skills (reusable instruction sets) by Elad Yakobovich, packaged as a plugin marketplace.
 
-**Total: 205 skills in 12 plugins** (counted from the folders).
+**Total: 229 skills in 12 plugins** (counted from the folders).
+
+Credit: 24 of these skills come from Yuval Avidani's public collection, [hoodini/ai-agents-skills](https://github.com/hoodini/ai-agents-skills) (its README states MIT).
 
 | Plugin | Topic | Skills |
 |---|---|---|
-| `agents-automation` | AI agents, councils, automation, Claude Code tooling | 10 |
-| `ai-media` | AI image, video, audio and creative generation | 9 |
-| `backend-data` | Backend, databases, APIs, cloud and deployment | 4 |
-| `design-ui` | UI/UX design: visual quality, anti-AI-slop, motion, design systems, mockups | 18 |
-| `dev-workflow` | Planning, git, code review, subagents and everyday development workflow | 20 |
-| `frontend` | React, Next.js, Tailwind, shadcn, animation (GSAP, Three.js), mobile | 28 |
+| `agents-automation` | AI agents, councils, automation, Claude Code tooling | 13 |
+| `ai-media` | AI image, video, audio and creative generation | 11 |
+| `backend-data` | Backend, databases, APIs, cloud and deployment | 11 |
+| `design-ui` | UI/UX design: visual quality, anti-AI-slop, motion, design systems, mockups | 22 |
+| `dev-workflow` | Planning, git, code review, subagents and everyday development workflow | 23 |
+| `frontend` | React, Next.js, Tailwind, shadcn, animation (GSAP, Three.js), mobile | 30 |
 | `hebrew-rtl` | Hebrew writing, editing, RTL layouts, i18n and Hebrew documents/presentations | 14 |
-| `israel-business` | Israeli business: invoicing, payments, tax, government data, calendars, WhatsApp, stocks | 18 |
+| `israel-business` | Israeli business: invoicing, payments, tax, government data, calendars, WhatsApp, stocks | 19 |
 | `israeli-skills` | Israeli life and business skills from the skills-il collection (MIT): tax, VAT, bureaucracy, health system, real estate and more | 69 |
-| `research-docs` | Research, documents, SEO/GEO, content and reports | 5 |
-| `security` | Security, auth and supply-chain safety | 3 |
+| `research-docs` | Research, documents, SEO/GEO, content and reports | 6 |
+| `security` | Security, auth and supply-chain safety | 4 |
 | `testing-debug` | Testing, debugging and QA | 7 |
-| **Total** | | **205** |
+| **Total** | | **229** |
 
 ## Install
 

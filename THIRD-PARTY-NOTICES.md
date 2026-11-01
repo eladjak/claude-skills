@@ -55,9 +55,12 @@ composition-patterns, react-native-skills, vercel-react-best-practices
 
 ai-film-production (idea credit: Elchanan Porten's pipeline), ai-thumbnail-cloning, claude-desktop-updater, council-of-future-greats, dep-scan, gemini-omni-video, geo-aeo-optimizer, geo-scan, google-veo-video, hebrew-ai-copy-edit, hebrew-presentations, hebrew-writer, hook-doctor, interactive-faq-chat, iteration-report, kinetic-video-creator, longtail-seo-content, multi-model-cross-review, nextjs-csp-nonce, overnight-claude (idea credit: levelsio), presentation-architect, product-explosion-photo, rtl-design, safe-live-refactor, sage, seedance-master-prompt, sure, team-build, typesafe-as-a-judge, typesafe-session-control, typesafe-usage-summary, ux-standard, venture-stress-test, wow-ui-standard
 
+## From hoodini/ai-agents-skills by Yuval Avidani (https://github.com/hoodini/ai-agents-skills) — published publicly; README states MIT; no LICENSE file in upstream repo (24 skills)
+analytics-metrics, aws-account-management, aws-agentcore, aws-strands, bun, cloudflare, copilot-docs, copilot-sdk, fal-ai, figma, github-trending, honest-agent, langchain, local-llm-router, mermaid-diagrams, mobile-responsiveness, mongodb, nano-banana-pro, owasp-security, railway, shabbat-times, ux-design-systems, vercel, web-accessibility
+
 ## Other credits
 - Three Vercel skills (composition-patterns, react-native-skills, vercel-react-best-practices) declare `license: MIT` in their own frontmatter; the upstream repo has no separate LICENSE file.
 - A community skills collection by Yuval Avidani is at [hoodini/ai-agents-skills](https://github.com/hoodini/ai-agents-skills).
 
 ## Removed on 1.11.2026 (license check)
-98 skills were removed because no permissive license could be verified (upstream repo has no LICENSE file, only a README line; a blog post; or the origin could not be determined). If you are the author and want a skill restored with attribution, or can confirm its license, open an issue.
+98 skills were removed (24 of them were restored on 1.11.2026 with attribution, see above) because no permissive license could be verified (upstream repo has no LICENSE file, only a README line; a blog post; or the origin could not be determined). If you are the author and want a skill restored with attribution, or can confirm its license, open an issue.
