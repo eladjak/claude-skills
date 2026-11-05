@@ -1,41 +1,7 @@
 ---
 name: hebrew-writer
 description: |
-  v5 — Write Hebrew content indistinguishable from a native Israeli human.
-  Generates, rewrites, or detects AI patterns in Hebrew text.
-  9-layer system with Variation Fingerprint Engine: Hebrew-first thinking,
-  55+ AI pattern detection, Israeli voice injection, linguistic precision,
-  rhythm engineering, self-audit scoring (95/100 threshold), adaptive
-  voice cloning (Key Tells + style-extreme passages + calibration loop),
-  Soul Layer (נשמה עמוקה), and Versatility Engine (מנגנון המגוון).
-  v5 adds: Pre-Write Commitment Oath (Step 0), Soul-First Planning (Step 4b),
-  Tier 1 Violation Scanner (Step 6.5), Tier 1 auto-fail severity system in
-  Self-Audit, reordered Quick-Check Checklist (Tier 1 items first). Enforcement
-  rebuild — all rules from v1-v4 already existed; v5 ensures they execute.
-  Grounded in PNAS 2025 register-leveling research, Antislop ICLR 2026
-  (8,000+ pattern taxonomy), MATTR lexical diversity, and Hebrew
-  argumentative discourse stance research (Frontiers 2025).
-  Use when: writing Hebrew content, humanizing Hebrew text, checking
-  Hebrew text for AI tells, or matching someone's Hebrew writing voice.
-  ALSO absorbs (May 18, 2026) hebrew-content-writer (marketing/UX/articles/
-  emails/social posts + register guidance + Hebrew SEO) and hebrew-translator
-  (Hebrew-English technical translation). When a specific person's voice is the target, defers
-  to your voice-guide skill. When mechanical edit needed, defers to hebrew-ai-copy-edit.
-  Triggers: "write in Hebrew", "Hebrew content", "כתוב בעברית",
-  "humanize Hebrew", "sound Israeli", "Hebrew blog", "Hebrew article",
-  "rewrite in Hebrew", "detect AI Hebrew", "תכתוב לי", "shadow writer",
-  "ktov b'ivrit", "Hebrew marketing", "Hebrew copywriting", "Hebrew UX",
-  "Hebrew email", "Hebrew SEO", "תוכן שיווקי", "כותב תוכן",
-  "translate Hebrew", "Hebrew-English translation", "תרגום עברית", "תרגם"
-user-invocable: true
-argument-hint: '"topic or text" [--mode generate|rewrite|detect] [--setup] [--setup-deep] [--calibrate] [--fresh] [--type blog|academic|social|business|email|creative|auto] [--length short|medium|long|xl|NUMBER] [--gender male|female|neutral] [--voice profile-name] [--my-voice "sample text"] [--my-voice-file path] [--learn "text" --save-as name] [--show-score]'
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Grep
-  - Glob
-  - AskUserQuestion
+  v5 - Write Hebrew content that reads like a native Israeli human wrote it. Generates, rewrites, or detects AI patterns in Hebrew text (55+ patterns). 9-layer system: Hebrew-first thinking, Israeli voice, linguistic precision, rhythm, self-audit scoring (95/100 threshold), adaptive voice cloning, Soul Layer and Versatility Engine. Covers marketing, UX copy, articles, emails, social posts, Hebrew SEO and Hebrew-English technical translation. Use when: writing Hebrew content, humanizing Hebrew text, checking Hebrew text for AI tells, or matching someone's Hebrew writing voice. Triggers: "write in Hebrew", "Hebrew content", "כתוב בעברית", "humanize Hebrew", "sound Israeli", "Hebrew blog", "Hebrew article".
 ---
 
 # Security Policy
