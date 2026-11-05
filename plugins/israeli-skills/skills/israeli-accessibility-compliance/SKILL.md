@@ -332,3 +332,22 @@ Solution: Add `role="alert"` to error message containers and ensure they are pop
 ### Error: "Skip navigation link not working in RTL layout"
 Cause: Skip link positioned off-screen using physical CSS (left: -9999px)
 Solution: Use `inset-inline-start: -9999px` instead of `left: -9999px` for the skip link. Ensure the target element has `id` and `tabindex="-1"` for focus management. Test that the skip link is the first focusable element in tab order.
+
+## Quick reference (merged from israeli-accessibility)
+
+#### Hebrew ARIA Labels
+Common labels: תפריט ראשי (main nav), חיפוש באתר (search), סגירה (close), דלגו לתוכן הראשי (skip to content), טוען... (loading). Mixed content needs proper dir attributes on numbers and emails.
+
+#### Audit Checklist (IS 5568 AA)
+Perceivable: alt text in Hebrew, captions, 4.5:1 contrast. Operable: keyboard access, RTL tab order, skip nav. Understandable: lang="he", Hebrew error messages. Robust: valid HTML, correct ARIA.
+
+#### Testing
+Automated: axe DevTools, Lighthouse, WAVE, Pa11y, jest-axe. Manual: keyboard nav RTL, NVDA/JAWS Hebrew, VoiceOver, zoom 200%, high contrast mode.
+
+Extra files: `scripts/a11y_checker.py` (lightweight HTML checker) and `references/is-5568-checklist.md` (IS 5568 AA checklist).
+
+## Additional troubleshooting
+
+### Error: "Focus indicator not visible in dark theme"
+Cause: Default browser focus outline may be invisible on dark backgrounds
+Solution: Use a custom focus indicator with sufficient contrast in both themes. Use `outline: 2px solid` with a color that has 3:1 contrast against both light and dark backgrounds. CSS: `*:focus-visible { outline: 2px solid #4A90D9; outline-offset: 2px; }`

@@ -180,3 +180,45 @@ Solution: Use Bank of Israel representative rate (sha'ar yatzig) published daily
 ### Error: "Capital gains calculation unclear"
 Cause: Complex scenarios like partial sales, inflationary adjustments, or inherited shares
 Solution: For shares purchased before 2003, inflationary component may be exempt. For inherited shares, acquisition cost is market value at inheritance date. Consult a tax advisor (yo'etz mas) for complex cases.
+
+## Index and trading-hours reference (merged from tase-stock-analyzer)
+
+### Key TASE Indices
+| Index | Companies | Description |
+|-------|-----------|-------------|
+| TA-35 | 35 | Largest market-cap stocks, blue-chip benchmark |
+| TA-125 | 125 | Broad market index, includes TA-35 |
+| TA-90 | 90 | Mid-cap stocks (TA-125 minus TA-35) |
+| TA-SME60 | 60 | Small/growth companies |
+| TA-Banks5 | 5 | Bank stocks |
+
+## MAYA Disclosure System
+MAYA (maya.tase.co.il) is the electronic disclosure system for all public companies. Filing types: Immediate Report (Doch Miyadi), Quarterly Report (Doch Rivoni), Periodic/Annual Report (Doch Titkufti), Shelf Prospectus (Taskit Madaf).
+
+## Dual-Listed Companies
+Key Israeli companies trading on both TASE and US exchanges: Check Point (CHKP/NASDAQ), Nice Systems (NICE/NASDAQ), Teva (TEVA/NYSE), ICL (ICL/NYSE), Elbit (ESLT/NASDAQ), CyberArk (CYBR/NASDAQ), Tower Semiconductor (TSEM/NASDAQ).
+
+## Sector Breakdown (TA-35 approx.)
+- Banking and Finance: ~25% (Hapoalim, Leumi, Discount, Mizrahi-Tefahot)
+- Technology: ~20% (Check Point, Nice, CyberArk)
+- Real Estate: ~12% (Azrieli, Amot, Melisron)
+- Energy and Chemicals: ~10% (ICL, Delek, Bazan)
+- Insurance: ~8% (Harel, Migdal, Clal)
+
+## Trading Hours
+Sunday-Thursday, 09:59 (pre-open) to 17:25 (closing auction). No trading Friday-Saturday.
+
+## Data Sources
+- tase.co.il: Live quotes, index composition
+- maya.tase.co.il: Corporate filings
+- isa.gov.il: ISA regulatory decisions
+- bizportal.co.il: Financial analysis
+- globes.co.il: Market news
+
+Extra files: `scripts/tase_fetcher.py` (index composition viewer with sector breakdown, run `python scripts/tase_fetcher.py --help`) and `references/tase-indices.md` (TA-35, TA-90, TA-125, TA-SME60, trading hours, MAYA, data sources).
+
+## Additional troubleshooting
+
+### Error: "Prices shown don't include after-hours trading"
+Cause: TASE has specific trading phases not captured in closing price
+Solution: TASE trading: pre-open (9:00-9:59), continuous (10:00-17:14), closing auction (17:14-17:25). After-hours orders queue for next day. Always specify which price point you're referencing.
